@@ -1,0 +1,25 @@
+.title-black--font {
+  color: $black;
+}
+.article-title--bold {
+  h1, h2 {
+    font-weight: 500;
+  }
+}
+.article-title--light, .article-title--bold {
+  h1, h2 {
+    margin-top: 10px;
+  }
+}
+h2.cmp-title__summary {
+  margin-bottom: 30px;
+  line-height: 22px;
+  font-size: 16px;
+  color: $dark-grey;
+  font-weight: 300;
+  @media only screen and (max-width: 767px) {
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+}

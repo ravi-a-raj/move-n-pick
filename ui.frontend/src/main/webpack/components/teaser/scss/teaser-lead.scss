@@ -1,0 +1,143 @@
+.teaser--leadgen,.cmp-teaser-left-image{
+    .cmp-teaser {
+      &__content {
+        &__image {
+          picture {
+            width: 100%;
+            padding-top: 40px;
+            display: inline-block;
+            @media (min-width: 768px) {
+              padding-top: 60px;
+            }
+            @media (min-width: 1025px) {
+              width: 85%;
+              padding-top: 80px;
+            }
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+        &__item {
+          padding: 40px 10px 20px;
+          width: 100%;
+          @media (min-width: 768px) {
+            padding: 20px 0px;
+            margin-left: 20px;
+          }
+          @media (min-width: 990px) {
+            margin-left: 70px;
+          }
+          @media (min-width: 1025px) {
+            margin-left: 0px;
+          }
+          &__eyebrow {
+            color: inherit;
+            font-family: "lato";
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 22px;
+            word-wrap: break-word;             
+            word-break: break-word;
+			letter-spacing:2px;
+            margin-bottom: 30px;
+            @media (min-width: 768px) {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+          &__title {
+            color: inherit;
+            font-weight: 400;
+            font-family: "PublicoHeadline-Light";
+            font-size: 24px;
+            line-height: 34px;
+            margin-bottom: 40px;
+            word-break: break-word;
+            word-wrap: break-word;
+            @media (min-width: 1025px) {
+              font-size: 50px;
+              line-height: 58px;
+              margin-bottom: 60px;
+            }
+          }
+          &__cta {
+            @media (min-width: 768px) {
+              display: flex;
+              flex-wrap: nowrap;
+            }
+            .btn-default {
+              font-size: 16px;
+              padding: 15px 35px;
+              border-radius: 0px;
+              font-family: "lato";
+              word-wrap: break-word;             
+              word-break: break-word;
+              max-width: 100%;
+			  font-weight:700;
+              @media (min-width: 768px) {
+                display: flex;
+                max-width: calc(50% - 7.5px);
+              }
+              @media (min-width: 990px) {
+                display: flex;
+                max-width: calc(50% - 15px);
+              }
+              align-items: center;
+            }
+            .primary_btn {
+              background: $white;
+              word-break: break-word;
+			  word-wrap : break-word;
+              margin: 0 15px 15px 0;
+              @media (min-width: 768px) {
+                margin: 0 15px 0 0;
+              }
+              @media (min-width: 990px) {
+                margin: 0 30px 0 0;
+              }
+              &:hover {
+                text-decoration: underline;
+                text-decoration-thickness: 1px;
+				text-underline-offset: 5px;
+              }
+              &:focus {
+                border:1px solid $black;
+              }
+              :active {
+                text-decoration: underline;
+                text-decoration-thickness: 1px;
+				text-underline-offset: 5px;
+              }
+            }
+            .secondary_btn {
+              color: inherit;
+              border: 1px solid;
+              word-break: break-word;
+			  word-wrap : break-word;
+              margin: 0 15px 15px 0;
+              @media (min-width: 768px) {
+                margin: 0 0px 0 0;
+              }
+              &:hover {
+                 text-decoration: underline;
+                text-decoration-thickness: 1px;
+				text-underline-offset: 5px;
+              }
+              &:focus {
+                 text-decoration: underline;
+                text-decoration-thickness: 1px;
+				text-underline-offset: 5px;
+              }
+              :active {
+                 text-decoration: underline;
+                text-decoration-thickness: 1px;
+				text-underline-offset: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }

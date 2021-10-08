@@ -1,0 +1,57 @@
+// DEFAULT STYLE
+.cmp-color-container {
+    background: white;
+    color: #000;
+}
+//BACKGROUND COLORS 
+.cmp-color-container--orange {
+    @extend .orange--color;
+}
+.cmp-color-container--purple {
+    @extend .purple--color;
+}
+.cmp-color-container--green {
+    @extend .green--color;
+}
+.cmp-color-container--yellow {
+    @extend .yellow--color;
+}
+
+.cmp-color-container--turquoise {
+    @extend .turquoise--color;
+}
+.cmp-color-container--magenta {
+    @extend .magenta--color;
+}
+
+.cmp-color-container--dark-blue {
+    @extend .dark-blue--color;
+}
+
+.cmp-color-container--red {
+    @extend .red--color;
+}
+.cmp-color-container--sky-grey {
+    @extend .sky-grey--color;
+}
+.cmp-color-container--pale-grey {
+    @extend .pale-grey--color;
+}
+.cmp-color-container--mid-grey {
+    @extend .mid-grey--color;
+}
+.cmp-color-container--dark-grey {
+    @extend .dark-grey--color;
+}
+
+
+
+.cmp-color-container--layout{
+	@extend .component-content;
+}
+
+
+
+
+
+

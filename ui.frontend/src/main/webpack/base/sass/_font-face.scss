@@ -1,0 +1,195 @@
+$chubb-font-path: "../resources/fonts" !default;
+
+@font-face {
+  font-family: "lato";
+  src: url("#{$chubb-font-path}/Lato-Regular.eot?#iefix") format("embedded-opentype"),
+      url("#{$chubb-font-path}/Lato-Regular.ttf") format("ttf"), url("#{$chubb-font-path}/Lato-Regular.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+    font-family: "lato bold";
+    src: url("#{$chubb-font-path}/Lato-Bold.eot?#iefix") format("embedded-opentype"),
+        url("#{$chubb-font-path}/Lato-Bold.ttf") format("ttf"), url("#{$chubb-font-path}/Lato-Bold.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+  font-family: 'PublicoHeadline-Light';
+  src: url("#{$chubb-font-path}/PublicoHeadline-Light-Web.eot?#iefix") format("embedded-opentype"), url("#{$chubb-font-path}/PublicoHeadline-Light-Web.woff") format("woff"), url("#{$chubb-font-path}/PublicoHeadline-Light-Web.ttf") format("truetype"), url("#{$chubb-font-path}/PublicoHeadline-Light-Web.svg#5058f1af8388633f609cadb75a75dc9d") format("svg");
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'PublicoHeadline-Roman';
+  src: url("#{$chubb-font-path}/PublicoHeadline-Roman-Web.eot?#iefix") format("embedded-opentype"), url("#{$chubb-font-path}/PublicoHeadline-Roman-Web.woff") format("woff"), url("#{$chubb-font-path}/PublicoHeadline-Roman-Web.ttf") format("truetype"), url("#{$chubb-font-path}/PublicoHeadline-Roman-Web.svg#5058f1af8388633f609cadb75a75dc9d") format("svg");
+
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'PublicoText-Roman';
+ src: url("#{$chubb-font-path}/PublicoText-Roman-Web.eot?#iefix") format("embedded-opentype"), url("#{$chubb-font-path}/PublicoText-Roman-Web.woff") format("woff"), url("#{$chubb-font-path}/PublicoText-Roman-Web.ttf") format("truetype"), url("#{$chubb-font-path}/PublicoText-Roman-Web.svg#5058f1af8388633f609cadb75a75dc9d") format("svg");
+ 
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$chubb-font-path}/icomoon.eot?s11gg3');
+  src:  url('#{$chubb-font-path}/icomoon.eot?s11gg3#iefix') format('embedded-opentype'),
+    url('#{$chubb-font-path}/icomoon.ttf?s11gg3') format('truetype'),
+    url('#{$chubb-font-path}/icomoon.woff?s11gg3') format('woff'),
+    url('#{$chubb-font-path}/icomoon.svg?s11gg3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+  content: "\e900";
+}
+.icon-arrow-down:before {
+  content: "\e901";
+}
+.icon-arrow-up:before {
+  content: "\e902";
+}
+.icon-check:before {
+  content: "\e903";
+}
+.icon-close:before {
+  content: "\e904";
+}
+.icon-download:before {
+  content: "\e92a";
+}
+.icon-external-link:before {
+  content: "\e906";
+}
+.icon-facebook:before {
+  content: "\e907";
+}
+.icon-hamburger:before {
+  content: "\e908";
+}
+.icon-linkedin:before {
+  content: "\e909";
+}
+.icon-location:before {
+  content: "\e90a";
+}
+.icon-mail:before {
+  content: "\e90b";
+}
+.icon-person:before {
+  content: "\e90c";
+}
+.icon-phone:before {
+  content: "\e90d";
+}
+.icon-play:before {
+  content: "\e90e";
+}
+.icon-plus:before {
+  content: "\e90f";
+}
+.icon-search:before {
+  content: "\e910";
+}
+.icon-speech-bubble:before {
+  content: "\e911";
+}
+.icon-twitter:before {
+  content: "\e912";
+}
+.icon-upload:before {
+  content: "\e913";
+}
+.icon-boat:before {
+  content: "\e914";
+}
+.icon-camera:before {
+  content: "\e915";
+}
+.icon-car:before {
+  content: "\e916";
+}
+.icon-doc:before {
+  content: "\e917";
+}
+.icon-doc_2:before {
+  content: "\e918";
+}
+.icon-explosion:before {
+  content: "\e919";
+}
+.icon-health:before {
+  content: "\e91a";
+}
+.icon-house:before {
+  content: "\e91b";
+}
+.icon-icon:before {
+  content: "\e91c";
+}
+.icon-leaf:before {
+  content: "\e91d";
+}
+.icon-leaf_2:before {
+  content: "\e91e";
+}
+.icon-lock:before {
+  content: "\e91f";
+}
+.icon-mic:before {
+  content: "\e920";
+}
+.icon-people:before {
+  content: "\e921";
+}
+.icon-plane:before {
+  content: "\e922";
+}
+.icon-shield:before {
+  content: "\e923";
+}
+.icon-shoppingbag:before {
+  content: "\e924";
+}
+.icon-store:before {
+  content: "\e925";
+}
+.icon-suitcase:before {
+  content: "\e926";
+}
+.icon-tooth:before {
+  content: "\e927";
+}
+.icon-tree:before {
+  content: "\e928";
+}
+.icon-accordian-arrow:before {
+  content: "\e929";
+}
+.icon-downloadv2:before {
+  content: "\e92a";
+}

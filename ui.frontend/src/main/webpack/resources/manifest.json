@@ -1,0 +1,9 @@
+{
+    "short_name": "Chubb",
+    "name": "Chubb Site",
+    "iocns": [],
+    "start_url": "/",
+    "background_color": "#FFFFFF",
+    "scope": "/content/chubb-sites/chubb-com",
+    "theme_color": "#FFFFFF"
+  }

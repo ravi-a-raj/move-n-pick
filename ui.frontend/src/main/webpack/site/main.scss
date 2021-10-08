@@ -1,0 +1,21 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import '../base/sass/shared';
+@import '../base/sass/_global-font.scss';
+/* Elements */
+//@import './elements.scss';
+
+/* Components */
+
+@import '../components/title/scss/title.scss';
+@import '../components/rte/scss/rte.scss';
+@import '../components/color-container/scss/color-container.scss';
+@import '../components/teaser/scss/common.scss';
+@import '../components/card/scss/card.scss';
+
+//Teaser CSS
+@import '../components/teaser/scss/teaser-default.scss';
+@import '../components/teaser/scss/teaser-lead.scss';
+@import '../components/teaser/scss/teaser-bottom-image.scss';
+//
+@import '../components/accordian/scss/accordian.scss';
