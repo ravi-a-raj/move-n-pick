@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+	jcr:primaryType="nt:unstructured">
+	<default jcr:primaryType="nt:unstructured"
+		jcr:title="Container Default"
+		sling:resourceType="wcm/core/components/policy/policy">
+		<jcr:content jcr:primaryType="nt:unstructured"
+			jcr:mixinTypes="[cq:ReplicationStatus]" />
+		<cq:styleGroups jcr:primaryType="nt:unstructured">
+			<item0 cq:styleGroupLabel="Color"
+				jcr:primaryType="nt:unstructured">
+				<cq:styles jcr:primaryType="nt:unstructured">
+					<item0 cq:styleClasses="cmp-color-container--dark-blue"
+						cq:styleId="cmp-color-container--dark-blue" cq:styleLabel="Dark Blue"
+						jcr:primaryType="nt:unstructured" />
+					<item1 cq:styleClasses="cmp-color-container--turquoise"
+						cq:styleId="cmp-color-container--turquoise" cq:styleLabel="Turquoise"
+						jcr:primaryType="nt:unstructured" />
+					<item2 cq:styleClasses="cmp-color-container--yellow"
+						cq:styleId="cmp-color-container--yellow" cq:styleLabel="Yellow"
+						jcr:primaryType="nt:unstructured" />
+					<item3 cq:styleClasses="cmp-color-container--red"
+						cq:styleId="cmp-color-container--red" cq:styleLabel="Red"
+						jcr:primaryType="nt:unstructured" />
+					<item4 cq:styleClasses="cmp-color-container--green"
+						cq:styleId="cmp-color-container--green" cq:styleLabel="Green"
+						jcr:primaryType="nt:unstructured" />
+					<item5 cq:styleClasses="cmp-color-container--purple"
+						cq:styleId="cmp-color-container--purple" cq:styleLabel="Purple"
+						jcr:primaryType="nt:unstructured" />
+					<item6 cq:styleClasses="cmp-color-container--magenta"
+						cq:styleId="cmp-color-container--magenta" cq:styleLabel="Magenta"
+						jcr:primaryType="nt:unstructured" />
+					<item7 cq:styleClasses="cmp-color-container--orange"
+						cq:styleId="cmp-color-container--orange" cq:styleLabel="Orange"
+						jcr:primaryType="nt:unstructured" />
+					<item8 cq:styleClasses="cmp-color-container--sky-grey"
+						cq:styleId="cmp-color-container--sky-grey" cq:styleLabel="Sky Grey"
+						jcr:primaryType="nt:unstructured" />
+					<item9 cq:styleClasses="cmp-color-container--pale-grey"
+						cq:styleId="cmp-color-container--pale-grey" cq:styleLabel="Pale Grey"
+						jcr:primaryType="nt:unstructured" />
+					<item10 cq:styleClasses="cmp-color-container--mid-grey"
+						cq:styleId="cmp-color-container--mid-grey" cq:styleLabel="Mid Grey"
+						jcr:primaryType="nt:unstructured" />
+					<item11 cq:styleClasses="cmp-color-container--dark-grey"
+						cq:styleId="cmp-color-container--dark-grey" cq:styleLabel="Dark Grey"
+						jcr:primaryType="nt:unstructured" />
+				</cq:styles>
+			</item0>
+			<item1 cq:styleGroupLabel="Layout"
+				jcr:primaryType="nt:unstructured">
+				<cq:styles jcr:primaryType="nt:unstructured">
+					<item0 cq:styleClasses="cmp-nobleed"
+						cq:styleId="cmp-nobleed"
+						cq:styleLabel="No Bleed" jcr:primaryType="nt:unstructured" />
+				</cq:styles>
+			</item1>
+			<item2 cq:styleGroupLabel="Padding"
+				jcr:primaryType="nt:unstructured">
+				<cq:styles jcr:primaryType="nt:unstructured">
+					<item0 cq:styleClasses="cmp-content-padding-top"
+						cq:styleId="cmp-content-padding-top" cq:styleLabel="Top Padding"
+						jcr:primaryType="nt:unstructured" />
+					<item1 cq:styleClasses="cmp-content-padding-bottom"
+						cq:styleId="cmp-content-padding-bottom" cq:styleLabel="Bottom Padding"
+						jcr:primaryType="nt:unstructured" />
+					<item2 cq:styleClasses="cmp-content-padding"
+						cq:styleId="cmp-content-padding" cq:styleLabel="Top and Bottom Padding"
+						jcr:primaryType="nt:unstructured" />
+				</cq:styles>
+			</item2>
+		</cq:styleGroups>
+	</default>
+</jcr:root>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="nt:unstructured">
+    <default jcr:primaryType="nt:unstructured" jcr:title="Hero" cq:allowNoStyle="true"
+        sling:resourceType="wcm/core/components/policy/policy">
+        <jcr:content jcr:primaryType="nt:unstructured" jcr:mixinTypes="[cq:ReplicationStatus]" />
+        <cq:styleGroups jcr:primaryType="nt:unstructured">
+            <item0
+                cq:styleGroupLabel="Image Crop"
+                jcr:primaryType="nt:unstructured">
+                <cq:styles jcr:primaryType="nt:unstructured">
+                    <item0
+                        cq:styleClasses="cta-teaser__content__image--left"
+                        cq:styleId="cmp-promo-video__image--left"
+                        cq:styleLabel="Left"
+                        jcr:primaryType="nt:unstructured"/>
+                    <item1
+                        cq:styleClasses="cta-teaser__content__image--right"
+                        cq:styleId="cmp-promo-video__image--right"
+                        cq:styleLabel="Right"
+                        jcr:primaryType="nt:unstructured"/>
+                    <item2
+                        cq:styleClasses="cta-teaser__content__image--center"
+                        cq:styleId="cmp-promo-video__image--center"
+                        cq:styleLabel="Center"
+                        jcr:primaryType="nt:unstructured"/>
+                </cq:styles>
+            </item0>
+ 		</cq:styleGroups>
+    </default>
+</jcr:root>

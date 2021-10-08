@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aem-chubb-global" mode="update"/>
+	<filter root="/conf/aem-chubb-foundation" mode="update"/>
+    <filter root="/conf/combined-faq" mode="update"/>
+    <filter root="/conf/global/settings/workflow/models/portal-sb-assign-current-date-to-announcement-cf" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/portal-create-variation" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/portals-solr-index-to-stage" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/launcher/config/PortalSolrIndexStageLauncher" mode="replace"/>
+	<filter root="/conf/global/settings/workflow/launcher/config/PortalSBAnnouncementLauncher" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/launcher/config/PortalCreateVariationLauncher" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/portals-content-copy-draft-to-stage" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/portals-content-copy-master-to-draft" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/portals-content-copy-stage-to-master" mode="replace"/>
+    <filter root="/var/workflow/models/portal-sb-assign-current-date-to-announcement-cf" mode="replace"/>
+    <filter root="/var/workflow/models/portal-create-variation" mode="replace"/>
+    <filter root="/var/workflow/models/portals-solr-index-to-stage" mode="replace"/>
+    <filter root="/var/workflow/models/portals-content-copy-draft-to-stage" mode="replace"/>
+    <filter root="/var/workflow/models/portals-content-copy-master-to-draft" mode="replace"/>
+    <filter root="/var/workflow/models/portals-content-copy-stage-to-master" mode="replace"/>
+    <filter root="/conf/global/settings/dam/adminui-extension" mode="replace"/>
+	<filter root="/conf/global/settings/workflow/launcher/config/BrightcoveAssetpublishLauncher" mode="replace"/>
+	<filter root="/conf/global/settings/workflow/models/brighcove-asset-publish" mode="replace"/>
+	<filter root="/var/workflow/models/brighcove-asset-publish" mode="replace"/>
+</workspaceFilter>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="nt:unstructured">
+    <default jcr:primaryType="nt:unstructured" jcr:title="Text Default"
+        sling:resourceType="wcm/core/components/policy/policy">
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+        <cq:styleGroups jcr:primaryType="nt:unstructured">
+            <item0 cq:styleGroupLabel="Bottom Margin" jcr:primaryType="nt:unstructured">
+                <cq:styles jcr:primaryType="nt:unstructured">
+                    <item0 cq:styleClasses="cmp-rte-bottom--none" cq:styleId="bottom-none"
+                        cq:styleLabel="None 0px" jcr:primaryType="nt:unstructured" />
+                    <item1 cq:styleClasses="cmp-rte-bottom--small" cq:styleId="bottom-small"
+                        cq:styleLabel="Small 7.5px" jcr:primaryType="nt:unstructured" />
+                    <item2 cq:styleClasses="cmp-rte-bottom--medium" cq:styleId="bottom-medium"
+                        cq:styleLabel="Medium 15px" jcr:primaryType="nt:unstructured" />
+                    <item3 cq:styleClasses="cmp-rte-bottom--large" cq:styleId="bottom-large"
+                        cq:styleLabel="Large 30px" jcr:primaryType="nt:unstructured" />
+                </cq:styles>
+            </item0>
+        </cq:styleGroups>
+    </default>
+</jcr:root>

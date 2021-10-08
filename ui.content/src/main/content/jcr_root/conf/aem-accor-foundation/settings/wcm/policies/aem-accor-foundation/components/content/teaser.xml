@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="nt:unstructured">
+    <default jcr:primaryType="nt:unstructured" jcr:title="Teaser Default" cq:allowNoStyle="true"
+        sling:resourceType="wcm/core/components/policy/policy">
+        <jcr:content jcr:primaryType="nt:unstructured" jcr:mixinTypes="[cq:ReplicationStatus]" />
+        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Layout"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="teaser--leadgen"
+                                        cq:styleId="1622023603524"
+                                        cq:styleLabel="Lead Gen"
+                                        jcr:primaryType="nt:unstructured"/>    
+                                </cq:styles>
+                            </item0>
+                            <item1
+                                cq:styleGroupLabel="Hide"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-teaser--eybrow"
+                                        cq:styleId="1622704529889"
+                                        cq:styleLabel="Pre Title"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-teaser--title"
+                                        cq:styleId="1622704547648"
+                                        cq:styleLabel="Title"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item1>
+           </cq:styleGroups>
+    </default>
+</jcr:root>
