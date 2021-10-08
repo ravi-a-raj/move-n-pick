@@ -1,0 +1,30 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Article Body Copy Component"
+	 data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-genric-content-placeholder'}" />
+<sly data-sly-use.copyItems="${'com.chubb.foundation.models.ArticleBodyCopy'}" />
+
+    <div class="copy5">
+        <div class="copy5__content">
+            <div class="row copy5__content__row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="copy5__content__text">
+                        <div class="copy5__content__text__tag">
+                            <ul class="list-inline" data-sly-list.tagList=${copyItems.articleTags}>
+                                <li><a href="${copyItems.pagePath}?${tagList}" target="${copyItems.pageTarget}" data-ec="cta click" data-ea="content link" data-cta="${tagList.toString.toLowerCase}${copyItems.title ? ': {0}' : ''@format=[copyItems.title.toString.toLowerCase]}" data-linkType="internal site page" data-linkUrl="${copyItems.pagePath}?${tagList}">${tagList}</a></li>
+                            </ul>
+                        </div>
+                        <h2 class="copy5__content__text__title">${copyItems.title}</h2>
+						<div class="copy5__content__author">
+                        <sly data-sly-use.component="/apps/aem-chubb-foundation/components/common/dialogs/attribution/attribution.html"
+							 data-sly-call="${component.template @ attribution = copyItems.attribution}" />
+						</div>
+                        <h3 class="copy5__content__text__pre-title">${copyItems.preTitle}</h3>
+                        <div class="copy5__content__text__desc">
+                        	<p>${copyItems.description @ context='html'}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </div>

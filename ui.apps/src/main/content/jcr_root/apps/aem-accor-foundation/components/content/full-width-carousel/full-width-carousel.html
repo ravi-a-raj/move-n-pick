@@ -1,0 +1,34 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Full Width Carousel"
+		data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-genric-content-placeholder'}" />
+<sly data-sly-use.carouselList="${'com.chubb.foundation.models.list.FullWidthCarouselList'}" />
+
+	<div class="cta-carousel">
+	   <div class="carousel-cta owl-carousel owl-theme">
+	   <sly data-sly-list.carouselItem="${carouselList.carouselList}">
+			<div class="item cta-carousel__item"> 
+				<div class="row row-text">
+					<div class="col-sm-12 col-md-10 col-xs-10">
+						<h2 class="h1-title-rte">${carouselItem.title}</h2>	
+					</div>
+				</div>			
+				<div class="cta-carousel__item__imagec">
+					<div class="cta-carousel__item__imagec__image">
+						<picture>
+							<img src="${carouselItem.imagePath}" alt="${carouselItem.isImageDecorative ? true : carouselItem.imageAltText}">
+						</picture>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-9 col-md-9 col-xs-9">
+						<div class="cta-carousel__item__desc">	
+							<div class="cta-carousel__item__desc__content h3-title-rte">${carouselItem.description @ context='html'}</div>
+						</div>
+					</div>
+				</div>
+				<div class="cta-carousel__link">
+                  	<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = carouselItem.cta, componentTitle = '${carouselItem.title}'}"/>
+				</div>
+			</div>
+			</sly>
+            	</div>
+	</div>

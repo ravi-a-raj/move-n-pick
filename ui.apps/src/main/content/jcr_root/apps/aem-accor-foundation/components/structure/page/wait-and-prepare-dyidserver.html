@@ -1,0 +1,13 @@
+<script>
+// stop for sometime for dyid cookie to be planted
+setTimeout(myFunction, 3000);
+
+function myFunction() {
+   console.log("invoking ajax call");
+    const Http = new XMLHttpRequest();
+    const url='/bin/prepareDyIDServerCookie';
+    Http.open("POST", url, false);
+    Http.send();
+
+}
+</script>

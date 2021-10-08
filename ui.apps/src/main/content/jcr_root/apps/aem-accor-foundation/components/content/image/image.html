@@ -1,0 +1,12 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Image"
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-image-placeholder'}" />
+	
+<sly data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}" />
+<sly data-sly-use.image="${'com.chubb.foundation.models.ImageModel'}" />
+
+	<div class="cmp-featured__content__item__img" data-sly-test="${properties.fileReference}">
+		<img src="${properties.fileReference}" alt="${properties.isDecorative ? true : (properties.altValueFromDAM ? image.DamAltText : properties.alt)}"/>
+	</div>
+
+
+

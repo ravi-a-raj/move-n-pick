@@ -1,0 +1,93 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2016 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<template data-sly-template.head="${ @ page }"
+          data-sly-use.headlibRenderer="headlibs.html"
+          data-sly-use.headResources="head.resources.html"
+          data-sly-use.seo="com.chubb.core.models.SEOModel">
+    <sly data-sly-test="${inheritedPageProperties.gascript}">
+    	${inheritedPageProperties.gascript @context='scriptComment'}
+    </sly>
+    <sly data-sly-test="${inheritedPageProperties.genericscript}">
+    	${inheritedPageProperties.genericscript @context='scriptComment'}
+    </sly>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>${ page.title @ context='unsafe'}</title>
+    <meta data-sly-test.keywords="${page.keywords}" name="keywords" content="${keywords}"/>
+    <meta name="title" content="${pageProperties.pageTitle || page.title @ context='unsafe'}"/>
+    <meta name="description" content="${(pageProperties.jcr:description || pageProperties.pageTitle || page.title) @ context='unsafe'}"/>
+    <sly data-sly-test="${seo.thumbNailImagePath}">
+    	<meta name="image" content="${seo.thumbNailImagePath}">
+    </sly>
+    <sly data-sly-test="${pageProperties.keywords}">
+    	<meta name="keywords" content="${pageProperties.keywords @ context='unsafe'}">
+    </sly>
+    <link rel="canonical" href="${pageProperties.canonicalLink ? pageProperties.canonicalLink : seo.currentPageUrl}">
+	<sly data-sly-list.lang="${seo.hrefLangList}">
+		<link rel="alternate" href="${lang.link}" hreflang="${lang.language}-${lang.country}" />
+	</sly>
+    <meta data-sly-test.templateName="${page.templateName}" name="template" content="${page.templateName}"/>
+    <meta property="og:url" content="${seo.currentPageUrl}"/>
+    <meta property="og:title" content="${pageProperties.pageTitle || page.title  @ context='unsafe'}"/>
+    <meta property="og:description" content="${(pageProperties.jcr:description || pageProperties.pageTitle || page.title) @ context='unsafe'}"/>
+    <sly data-sly-test="${seo.thumbNailImagePath}">
+    	<meta property="og:image" content="${seo.thumbNailImagePath}">
+    </sly>
+    <sly data-sly-test="${pageProperties.custommetatags}">
+    	${pageProperties.custommetatags @ context='unsafe'}
+    </sly>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@Chubb"/>
+    <meta name="twitter:title" content="${pageProperties.pageTitle || page.title  @ context='unsafe'}"/>
+    <meta name="twitter:description" content="${(pageProperties.jcr:description || pageProperties.pageTitle || page.title) @ context='unsafe'}"/>
+    <sly data-sly-test="${seo.thumbNailImagePath}">
+    	<meta name="twitter:image" content="${seo.thumbNailImagePath}">
+    </sly>
+    <meta itemprop="name" content="${pageProperties.pageTitle || page.title @ context='unsafe'}"/>
+    <meta itemprop="description" content="${(pageProperties.jcr:description || pageProperties.pageTitle || page.title) @ context='unsafe'}"/>
+    <sly data-sly-test="${seo.thumbNailImagePath}">
+    	<meta itemprop="image" content="${seo.thumbNailImagePath}">
+    </sly>
+    <meta name="robots" content="${pageProperties.noIndex ? 'noindex' : 'index'},${pageProperties.noFollow ? 'nofollow' : 'follow'}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<sly data-sly-test="${inheritedPageProperties.enableDynamicYield}">
+    	<sly data-sly-use.logic="runmode-validation.js">
+    		<sly data-sly-test="${logic.runmodes.author}">
+				<sly data-sly-test.dyID = "${inheritedPageProperties.authorDyId}">
+                	<script type="text/javascript" src="//cdn.dynamicyield.com/api/${dyID}/api_dynamic.js"></script>
+                	<script type="text/javascript" src="//cdn.dynamicyield.com/api/${dyID}/api_static.js"></script>
+            	</sly>
+            </sly>
+            <sly data-sly-test="${logic.runmodes.publish}">
+				<sly data-sly-test.dyID = "${inheritedPageProperties.dyId}">
+                	<script type="text/javascript" src="//cdn.dynamicyield.com/api/${dyID}/api_dynamic.js"></script>
+                	<script type="text/javascript" src="//cdn.dynamicyield.com/api/${dyID}/api_static.js"></script>
+            	</sly>
+            </sly>
+       	</sly>
+    </sly>
+    <link rel="icon" href=" ${currentStyle.chubbFavicon}">
+	 <sly data-sly-include="preload.html"></sly>
+    <sly data-sly-include="datalayer.html"></sly>
+    <sly data-sly-include="head.socialmedia.html"></sly>
+    <sly data-sly-include="customheaderlibs.html"></sly>
+    <sly data-sly-call="${headlibRenderer.headlibs @
+                                designPath                = page.designPath,
+                                staticDesignPath          = page.staticDesignPath,
+                                clientLibCategories       = page.clientLibCategories,
+                                clientLibCategoriesJsHead = page.clientLibCategoriesJsHead,
+                                hasCloudconfigSupport     = page.hasCloudconfigSupport}"></sly>
+</template>

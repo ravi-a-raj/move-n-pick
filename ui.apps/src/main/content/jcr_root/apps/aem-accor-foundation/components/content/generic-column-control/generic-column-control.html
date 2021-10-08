@@ -1,0 +1,28 @@
+<div data-sly-use.colControl="com.chubb.foundation.models.ColumnControl" data-sly-unwrap></div>
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder cq-marker-start" data-emptytext="Column Control Container to select the number of Columns"></div>
+
+<div class="row featured-flex-box-${colControl.flexBoxvalue}" >
+            <div data-sly-list="${colControl.col}" data-sly-unwrap>
+		 		<sly data-sly-test.nocol="${properties.desktopColumns == '2'}" >
+					<div data-sly-attribute="${item.clssAttr1}">
+                       <div data-sly-resource="${@ path='par_0', resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
+                     </div>
+                     <div data-sly-attribute="${item.clssAttr2}">
+                       <div data-sly-resource="${@ path='par_1', resourceType='foundation/components/parsys'}" data-sly-unwrap></div>
+                     </div>
+				</sly>
+				<sly data-sly-test ="${!nocol}" >
+					<sly data-sly-test.par="${'{0}{1}' @format=['par_',item.count]}" />
+                    <div class="col-sm-${item.deskVal} featured-flex-box-${colControl.flexBoxvalue}__item">
+                    	<sly data-sly-resource="${@ path=par, resourceType='wcm/foundation/components/parsys'}" data-sly-unwrap></sly>
+                    </div>
+				</sly>
+
+            </div>
+        </div>
+
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder cq-marker-end" data-emptytext="End of Columns">
+    <!--End of Columns-->
+</div>

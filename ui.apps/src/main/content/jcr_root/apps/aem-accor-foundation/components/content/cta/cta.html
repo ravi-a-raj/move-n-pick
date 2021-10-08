@@ -1,0 +1,11 @@
+<div data-sly-test="${wcmmode.edit}"
+	class="cq-placeholder cq-marker-start p-4" data-emptytext="CTA"></div>
+
+<div class="cmp-cta"
+	data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}"
+	data-sly-test="${linkModel.text && linkModel.url}">
+	<a href="${linkModel.url}" title="${linkModel.title}"
+		target="${linkModel.behavior}"
+		data-sly-test="${linkModel.text && linkModel.url}">
+		${linkModel.text}</a>
+</div>

@@ -1,0 +1,41 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Horizontal Image Gallery Component"
+	 data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-genric-content-placeholder'}" />
+
+<sly data-sly-use.cardList="${'com.chubb.foundation.models.HorizontalImageGallery'}" />
+
+	<div class="cmp-card-component">
+		<div class="cmp-card__content">	
+			<div class="cmp-card__imagegallery">
+				<div class="row row-list">
+					<div class="col-md-3 featured-flex-box-4__item">
+						<div class="cmp-card__imagegallery__list">
+							<picture>
+								<img src="${cardList.fileReference1}" alt="${cardList.isDecorative1 ? true : (cardList.altFromDAM1 ? cardList.damAltText1 : cardList.imageAltText1)}">
+							</picture>
+						</div>
+					</div>
+					<div class="col-md-3 featured-flex-box-4__item">
+						<div class="cmp-card__imagegallery__list cmp-card__imagegallery__list__bottom">
+							<picture>
+								<img src="${cardList.fileReference2}" alt="${cardList.isDecorative2 ? true : (cardList.altFromDAM2 ? cardList.damAltText2 : cardList.imageAltText2)}">
+							</picture>
+						</div>
+					</div>
+					<div class="col-md-3 featured-flex-box-4__item">
+						<div class="cmp-card__imagegallery__list">
+							<picture>
+								<img src="${cardList.fileReference3}" alt="${cardList.isDecorative3 ? true : (cardList.altFromDAM3 ? cardList.damAltText3 : cardList.imageAltText3)}">
+							</picture>
+						</div>
+					</div>
+					<div class="col-md-3 featured-flex-box-4__item">
+						<div class="cmp-card__imagegallery__list cmp-card__imagegallery__list__bottom">
+							<picture>
+								<img src="${cardList.fileReference4}" alt="${cardList.isDecorative4 ? true : (cardList.altFromDAM4 ? cardList.damAltText4 : cardList.imageAltText4)}">
+							</picture>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>

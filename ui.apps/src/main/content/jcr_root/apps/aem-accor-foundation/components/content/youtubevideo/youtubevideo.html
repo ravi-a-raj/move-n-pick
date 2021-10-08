@@ -1,0 +1,21 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Youtube video" 
+   data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-button-placeholder'}" />
+<sly data-sly-test="${properties.id}">
+	<sly data-sly-test="${properties.enableautoplay}">
+	    <iframe
+	        width = "${properties.width @context='html'}%" 
+	        height = "${properties.height}" 
+	        src="//www.youtube.com/embed/${properties.id}?autoplay=1&mute=1"
+	       	allowfullscreen >
+		</iframe>
+	</sly>
+	<sly data-sly-test="${!properties.enableautoplay}">
+	    <iframe
+	        width = "${properties.width @context='html'}%" 
+	        height = "${properties.height}"
+	        src="//www.youtube.com/embed/${properties.id}"
+			allowfullscreen >
+	    </iframe>
+	</sly>
+</sly>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !text}"></sly>

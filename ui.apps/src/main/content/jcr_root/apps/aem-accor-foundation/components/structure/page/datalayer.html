@@ -1,0 +1,14 @@
+<sly data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"></sly>
+<sly data-sly-use.gtmData="com.chubb.core.models.GTMModel"></sly>
+<sly data-sly-use.data="${'datalayer.js' @ pageLang=page.language}"> </sly>
+<script>
+    dataLayer =[{
+     "page": "${gtmData.title.toString.toLowerCase @ context='unsafe'}",
+     "host": "${gtmData.host.toString.toLowerCase @ context='uri'}",
+     "country": "${(inheritedPageProperties.datalayerCountry ? inheritedPageProperties.datalayerCountry.toString.toLowerCase : gtmData.country ) @ context='scriptString'}",
+     "language": "${(inheritedPageProperties.datalayerLanguage ? inheritedPageProperties.datalayerLanguage.toString.toLowerCase : gtmData.language ) @ context='scriptString'}",
+     "business": "${(gtmData.datalayerBusiness.toString.toLowerCase || data.business.toString.toLowerCase) @ context='unsafe'}",
+     "section1": "${(gtmData.datalayerSection1.toString.toLowerCase || data.section1.toString.toLowerCase) @ context='unsafe'}",
+     "section2": "${(gtmData.datalayerSection2.toString.toLowerCase || data.section2.toString.toLowerCase) @ context='unsafe'}"
+    }];
+</script>

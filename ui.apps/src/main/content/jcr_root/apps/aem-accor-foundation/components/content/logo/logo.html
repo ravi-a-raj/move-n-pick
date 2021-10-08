@@ -1,0 +1,13 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}"></sly>
+<sly data-sly-use.image="${'com.chubb.foundation.models.ImageModel'}" />
+
+<a class="navbar-brand" href="${linkModel.url}" title="Chubb" target="${linkModel.behavior}"
+   data-ec="${linkModel.linkAnalyticsInfo.dataEventCategory}"
+   data-ea="${linkModel.linkAnalyticsInfo.dataEventAction}"
+   data-linkType="${linkModel.linkAnalyticsInfo.dataLinkType}"
+   data-linkUrl="${linkModel.linkAnalyticsInfo.dataLinkUrl}"
+   data-cta="main nav: chubb logo">
+	<img class="img-fluid" src="${properties.fileReference}" alt="${properties.isDecorative ? true : properties.alt}"/>
+</a>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !logo}"></sly>

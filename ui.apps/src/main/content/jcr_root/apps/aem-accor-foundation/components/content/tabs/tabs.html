@@ -1,0 +1,96 @@
+<sly data-sly-use.tabs="com.adobe.cq.wcm.core.components.models.Tabs" 
+	data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+	data-sly-test="${wcmmode.edit}"
+	data-emptytext="Hero Persona"	
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-tabs-placeholder'}" />
+<sly data-sly-use.herotab="${'com.chubb.foundation.models.Tab'}" />
+
+<sly data-sly-test="${tabs.items && tabs.items.size > 0}" data-sly-list.tab="${tabs.items}">
+	<sly data-sly-test.istabActive="${tab.name == tabs.activeItem}"/>
+
+	<sly data-sly-test= "${istabActive}"> 
+		<sly data-sly-test.ActivePersona= "${tab.title}"/>
+	</sly>
+   <sly data-sly-test= "${!tabs.activeItem && tabList.first}"> 
+		<sly data-sly-test.ActivePersona= "${tab.title}"/>
+	</sly>
+</sly>
+
+<div class="cmp-tabs cmp-tabs__hero "
+     data-cmp-is="tabs">
+     <div class="row">
+		 <div class="cmp-tabs__menu__container col-md-6 col-sm-12">
+
+			<ol data-sly-test="${tabs.items && tabs.items.size > 0}"
+				data-sly-list.tab="${tabs.items}"
+				role="tablist"
+				class="cmp-tabs__tablist"
+				aria-label="${tabs.accessibilityLabel}"
+				aria-multiselectable="false">
+				<sly data-sly-test.isActive="${tab.name == tabs.activeItem}"/>
+				 <sly data-sly-list.personaItem="${herotab.FeatureList}">
+					
+						<li role="tab" data-sly-test="${personaItem.tabsList == tab.title}"
+							class="cmp-tabs__tab${isActive ? ' cmp-tabs__tab--active' : ''} "
+							tabindex="${isActive ? '0' : '-1'}"
+							data-cta = "hero: ${tab.title.toLowerCase}"
+							data-id="${personaItem.tabID}"
+							data-cmp-hook-tabs="tab">
+							<sly data-sly-test="${!pageProperties.customH1Text && isActive}">
+                                 <h1 class="sr-only">${ActivePersona}: ${personaItem.title}</h1>
+                            </sly>
+							<div class="cmp-tabs__tab__content">
+								<p class="tab-text">${tab.title}</p>
+							</div>
+						</li>
+					
+				</sly>
+			</ol>
+		</div>
+		<sly data-sly-repeat.item="${tabs.items}">
+		<sly data-sly-list.personaItem="${herotab.FeatureList}">
+			<div data-sly-test="${personaItem.tabsList == item.title}"	
+            	 data-id="${personaItem.tabID}"
+				 class="cmp-tabs__tabpanel cmp-tab__hero${item.name == tabs.activeItem ? ' cmp-tabs__tabpanel--active' : ''} col-md-6 col-sm-12 " >
+				<div class="cmp-teaser-hero">
+					<div class="row">                				
+						<div class="col-md-12 cmp-teaser-hero__content">
+							<div class="cmp-teaser-hero__content__item">
+								<p class="cmp-teaser-hero__content__item__eyebrow" >${personaItem.preTitle}</p>
+								<p class="cmp-teaser-hero__content__item__title">${personaItem.title}</p>
+								<p class="cmp-teaser-hero__content__item__desc" >${personaItem.description}</p>
+								<div class="cmp-teaser-hero__content__item__cta">
+								
+									<span>
+										<a class="btn btn-default primary_btn" data-sly-test="${personaItem.primaryLinkTitle}"
+											 href="${personaItem.primaryCtaUrl}" data-cta="${personaItem.primaryLinkTitle.toLowerCase}: ${personaItem.title.toLowerCase}: ${item.title.toLowerCase}" title="${personaItem.primaryLinkTitle}${personaItem.primarylinkTargetText}" target="${personaItem.primaryCtabehavior}">
+											 ${personaItem.primaryLinkTitle}</a></span>
+											 
+									<span>
+										<a class="btn btn-default secondary_btn" data-sly-test="${personaItem.secondaryLinkTitle && personaItem.url}"
+											href="${personaItem.secondaryCtaUrl}" data-cta="${personaItem.secondaryLinkTitle.toLowerCase}: ${personaItem.title.toLowerCase}: ${item.title.toLowerCase}" title="${personaItem.secondaryLinkTitle}${personaItem.secondarylinkTargetText}" target="${personaItem.secondaryCtabehavior}">
+										${personaItem.secondaryLinkTitle}</a></span>
+								</div>
+
+							</div>
+						</div>
+						<div data-sly-test="${personaItem.url}" class="col-md-12 cmp-teaser-hero__image">
+							<picture>
+								<img src="${personaItem.url}" alt="${personaItem.isDecorative ? true : personaItem.imageAlt}"/>
+							</picture>
+						</div>
+					</div>
+				</div>
+			</div>  
+            <div data-sly-test="${personaItem.tabsList == item.title}"
+				 data-sly-resource="${item.name }"					 
+				 id="${personaItem.tabID}"
+				 role="tabpanel"
+				 tabindex="0"
+				 class="cmp-tabs__tabpanel${item.name == tabs.activeItem ? ' cmp-tabs__tabpanel--active' : ''} col-md-12 col-sm-12"
+				 data-cmp-hook-tabs="tabpanel">
+			</div>  
+		</sly>	
+		</sly>
+	</div>
+</div>

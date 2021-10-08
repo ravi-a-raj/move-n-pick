@@ -1,0 +1,11 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Button" 
+   data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-button-placeholder'}" />
+<sly data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}"></sly>
+<sly data-sly-test="${properties.linkText}">
+   <div class="cta">
+      <a class="btn secondary_btn" data-cta="${properties.linkText.toLowerCase}" href="${linkModel.url}"
+		title="${properties.linkText}${linkModel.linkTargetText}"
+         target="${linkModel.behavior}">${properties.linkText}</a>
+   </div>
+</sly>
+

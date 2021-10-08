@@ -1,0 +1,15 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Illustration with Multi-CTA" data-sly-call="${templates.placeholder @ isEmpty = !properties.title, classAppend=''}" />
+<sly data-sly-use.illustration="${'com.chubb.foundation.models.IllustrationCTAModel'}" data-sly-set.layouts="${properties.cq:styleIds}"/>
+
+<div>
+	<h2>Illustratin with Multi CTAs</h2>
+	<h5>Pre-Title : ${illustration.preTitle}</h5>
+		<h3>Title : ${illustration.title}</h3>
+		<p>Description : ${illustration.description @ context='html'}</p>
+		<ul data-sly-list.ctas="${illustration.ctaModelList}">
+			<li>Text : ${ctas.linkText}</li>
+			<li>Url: ${ctas.linkUrl}</li>
+			<li>Type: ${ctas.buttonType}</li>
+			<p>---------------------</p>
+		</ul>
+</div>

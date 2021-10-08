@@ -1,0 +1,77 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Illustration and Copy" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-illustration-and-copy-placeholder'}" />
+<sly data-sly-set.layouts="${properties.cq:styleIds}" />
+<sly data-sly-use.illustrationcopyListModel="${'com.chubb.foundation.models.list.IllustrationCopyModelList'}" />
+
+<sly data-sly-test="${'in-line-illustrationcopy' in layouts}">
+	<section class="cmp-illustration-list" aria-labelledby="IllustrationList-${illustrationcopyListModel.id}">
+		<div class="row cmp-illustration-list__content">
+			<div class="col-md-6 col-xs-12">
+				<span class="eyebrow-text-rte" id="IllustrationList-${illustrationcopyListModel.id}">${illustrationcopyListModel.preTitle}</span>
+				<h2 class="h2-title-rte">${illustrationcopyListModel.title}</h2>
+				<div class="body-copy-text-rte">${illustrationcopyListModel.description @context='html'}
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12">
+				<div class="cmp-illustration-list__items">
+					<sly data-sly-list.illustartionCopyitem="${illustrationcopyListModel.copyList}">
+						<div class="cmp-illustration-list__item">
+							<h3 class="h4-title-rte">${illustartionCopyitem.title}</h3>
+							<div class="body-copy-text-rte">${illustartionCopyitem.description @context='html'}</div>
+						</div>
+                    </sly>
+                    <sly data-sly-test="${'cta__primary_btn' in layouts}">
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'primary_btn', linkModel = illustrationcopyListModel.cta, componentTitle = illustrationcopyListModel.title}" />
+                    </sly>
+                    <sly data-sly-test="${'cta__secondary_btn' in layouts}">
+                        <sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = illustrationcopyListModel.cta, componentTitle = illustrationcopyListModel.title}" />
+                    </sly>
+                </div>
+
+			</div>
+			<div class="cmp-illustration-list__image">
+				<picture>
+					<source media="(min-width: 768px)" srcset="${illustrationcopyListModel.desktopImage}">
+					<source media="(max-width: 767px)" srcset="${illustrationcopyListModel.mobileImage}"> 
+                    <img src="${illustrationcopyListModel.desktopImage}" alt="${illustrationcopyListModel.isImageDecorative? true : illustrationcopyListModel.imageAltText}" /> 
+                </picture>
+			</div>
+		</div>
+	</section>
+</sly>
+<sly data-sly-test="${'at-top-illustrationcopy' in layouts}">
+	<section class="cmp-illustration-card" aria-labelledby="IllustrationList-${illustrationcopyListModel.id}">
+		<div class="row cmp-illustration-card__header">
+			<div class="col-md-2 col-xs-12 cmp-illustration-card__header__tab4col">
+				<span class="eyebrow-text-rte" id="IllustrationList-${illustrationcopyListModel.id}">${illustrationcopyListModel.preTitle}</span>
+			</div>
+			<div class="col-md-10 col-xs-12 cmp-illustration-card__header__tab8col">
+				<h2 class="h2-title-rte">${illustrationcopyListModel.title}</h2>
+			</div>
+		</div>
+		<div class="row cmp-illustration-card__section">
+			<div class="col-md-6 col-sm-4 col-xs-12 cmp-illustration-card__section__image">
+				<picture>
+					<source media="(min-width: 768px)" srcset="${illustrationcopyListModel.desktopImage}">
+					<source media="(max-width: 767px)" srcset="${illustrationcopyListModel.mobileImage}">
+                    <img src="${illustrationcopyListModel.desktopImage}" alt="${illustrationcopyListModel.isImageDecorative? true : illustrationcopyListModel.imageAltText}"/> 
+                </picture>
+			</div>
+			<div class="col-md-6 col-sm-8 col-xs-12 cmp-illustration-card__section__items">
+				<sly data-sly-list.illustartionCopyitem="${illustrationcopyListModel.copyList}">
+					<div class="cmp-illustration-card__section__item">
+						<h3 class="h4-title-rte">${illustartionCopyitem.title}</h3>
+						<div class="atribution"><span class="atribution__title">${illustartionCopyitem.authorName}</span><span class="atribution__category">${illustartionCopyitem.authorDesignation}</span>
+							<div class="atribution__location">${illustartionCopyitem.authorLocation}</div>
+						</div>
+					</div>
+				</sly>
+                <sly data-sly-test="${'cta__primary_btn' in layouts}">
+					<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'primary_btn', linkModel = illustrationcopyListModel.cta, componentTitle = illustrationcopyListModel.title}" />
+                </sly>
+               	<sly data-sly-test="${'cta__secondary_btn' in layouts}">
+               		<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = illustrationcopyListModel.cta, componentTitle = illustrationcopyListModel.title}" />
+             	</sly>
+			 </div>
+		</div>
+	</section>
+</sly>

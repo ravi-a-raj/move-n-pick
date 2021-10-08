@@ -1,0 +1,61 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="List"
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-teaser-global-placeholder'}" />
+<sly data-sly-set.layouts="${properties.cq:styleIds}"/>
+<sly data-sly-use.linkListModel="${'com.chubb.foundation.models.list.LinkListModel'}" />
+
+<section class="row" aria-labelledby="LinkList-${resource.path.hashCode}">
+	<div class="col-md-2 col-xs-12">
+		<div class="content__title">
+			<span class="title-text" id="LinkList-${resource.path.hashCode}"> ${linkListModel.preTitle}</span>
+		</div>
+	</div>
+	<div class="col-md-10 col-xs-12">
+		<sly data-sly-test="${'cmp-accordian-list-download' in layouts}">
+			<h2 class="body-copy-text-rte cmp-download-list__desc"  >${linkListModel.title}</h2>
+		</sly>
+		<sly data-sly-test="${'cmp-accordian-list-link' in layouts}">
+			<h2 class="h2-title-rte  cmp-download-list__title"  >${linkListModel.title}</h2>
+		</sly>
+			<ul class="cmp-download-list__list" data-sly-list.linkListItem="${linkListModel.linkList}">
+				<li>
+					<sly data-sly-test.isTitle="${linkListItem.title}">
+						<a href="${linkListItem.cta.linkUrl}" title="${linkListItem.cta.linkText}${linkListItem.cta.linkTargetText}" 
+							target="${linkListItem.cta.linkTarget}"
+						   data-ec="${linkListItem.cta.analyticsInfo.dataEventCategory}"
+						   data-ea="${linkListItem.cta.analyticsInfo.dataEventAction}"
+						   data-linkType="${linkListItem.cta.analyticsInfo.dataLinkType}"
+						   data-linkUrl="${linkListItem.cta.analyticsInfo.dataLinkUrl}"
+						   data-cta=" ${linkListItem.title.toLowerCase}: ${linkListItem.cta.analyticsInfo.dataCTA}"
+						   rel="${linkListItem.cta.analyticsInfo.rel}"
+						   data-portal="${linkListItem.cta.analyticsInfo.dataPortal}"
+						   data-persona="${linkListItem.cta.analyticsInfo.dataPersona}"
+						   data-portalea="${linkListItem.cta.analyticsInfo.dataPortalEventAction}">
+					  </sly>
+					  <sly data-sly-test="${!isTitle}">
+						<a href="${linkListItem.cta.linkUrl}" title="${linkListItem.cta.linkText}${linkListItem.cta.linkTargetText}" 
+							target="${linkListItem.cta.linkTarget}"
+						   data-ec="${linkListItem.cta.analyticsInfo.dataEventCategory}"
+						   data-ea="${linkListItem.cta.analyticsInfo.dataEventAction}"
+						   data-linkType="${linkListItem.cta.analyticsInfo.dataLinkType}"
+						   data-linkUrl="${linkListItem.cta.analyticsInfo.dataLinkUrl}"
+						   data-cta="${linkListItem.cta.analyticsInfo.dataCTA}"
+						   rel="${linkListItem.cta.analyticsInfo.rel}"
+						   data-portal="${linkListItem.cta.analyticsInfo.dataPortal}"
+						   data-persona="${linkListItem.cta.analyticsInfo.dataPersona}"
+						   data-portalea="${linkListItem.cta.analyticsInfo.dataPortalEventAction}">
+					  </sly>
+					   
+					   <h3 class="cmp-download-list__list__text h5-title-rte">${linkListItem.cta.linkText}</h3>
+					   <span class="cmp-download-list__list__icon" >  ${linkListItem.title} 
+							<sly data-sly-test="${linkListItem.icon}">
+								<em class="icon icon-${linkListItem.icon}"></em>
+
+						   </sly>
+					   </span>
+					</a>      
+				</li>
+			</ul>
+			<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = linkListModel.cta, componentTitle = linkListModel.title}"/>
+			
+	</div>
+</section>

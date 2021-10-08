@@ -1,0 +1,33 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Tabs Carousel" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-promobox-carousel-global-placeholder'}" />
+<sly data-sly-use.promoboxCarouselItemList="${'com.chubb.foundation.models.list.FullWidthCarouselList'}" />
+<div class="tabs-carousel owl-carousel owl-theme">
+	<sly data-sly-list.promoboxCarouselItem="${promoboxCarouselItemList.carouselList}">
+		<div class="item tabs-carousel__item"> 				
+			<div class="row"> 
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<sly data-sly-test="${promoboxCarouselItem.fileReference}">
+						<div class="tabs-carousel__item__image">
+							<picture>
+								<source media="(min-width: 768px)" srcset="${promoboxCarouselItem.desktopImage}">
+								<source media="(max-width: 767px)" srcset="${promoboxCarouselItem.mobileImage}">
+								<img src="${promoboxCarouselItem.desktopImage}" alt="${promoboxCarouselItem.isImageDecorative ? true : promoboxCarouselItem.imageAltText}"/>						
+							</picture>
+						</div>
+					</sly>	
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="tabs-carousel__item__content">	
+						<div class="eyebrow-text-rte tabs-carousel__item__content__eyebrow">${promoboxCarouselItem.preTitle}</div>
+						<sly data-sly-test ="${promoboxCarouselItem.title}">
+							<div class="h2-title-rte tabs-carousel__item__content__title">${promoboxCarouselItem.title}</div>
+						</sly>
+						<sly data-sly-test ="${promoboxCarouselItem.description}">
+							<div class="h6-title-rte tabs-carousel__item__content__desc">${promoboxCarouselItem.description @ context='html'}</div>
+						</sly>
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = promoboxCarouselItem.cta, componentTitle = promoboxCarouselItem.title}"/>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</sly>	
+</div>	

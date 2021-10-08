@@ -1,0 +1,40 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Non-Rotating Image Carousel Component"
+		data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-genric-content-placeholder'}" />
+<sly data-sly-use.carouselList="${'com.chubb.foundation.models.list.PagePropertyList'}" />
+
+		<div class="cmp-horizontal-list">
+			<div class="cmp-horizontal-list__content">
+				<div class="cmp-horizontal-list__image">
+				<sly data-sly-list.carouselItem="${carouselList.resourceList}">
+					<div class="cmp-horizontal-list__image__list ${((carouselItemList.count==1)? 'active' : '')}" data-id="${carouselItemList.count}">
+						<picture>
+							<img src="${carouselItem.imagePath}" alt="${carouselItem.isImageDecorative ? true : carouselItem.imageAltText}">
+						</picture>
+					</div>
+					</sly>
+				</div>
+				<div class="row row-list">
+				<sly data-sly-list.carouselItem="${carouselList.resourceList}">
+					<div class="col-md-4">
+						<div class="cmp-horizontal-list__item ${((carouselItemList.count!=1)? 'disabled' : '')}"  data-index="${carouselItemList.count}" data-carousel="${carouselItemList.count}" data-ea="content carousel navigation" data-ec="interaction">
+							<div class="cmp-horizontal-list__item__tags">
+								<ul data-sly-list.tagList=${carouselItem.articleTags}>
+									<li><a href="${carouselList.pagePath}#${tagList}" target="${carouselList.pageTarget}" data-ec="cta click" data-ea="content link" data-cta="${tagList.toString.toLowerCase}${carouselItem.articleTitle ? ': {0}' : ''@format=[carouselItem.articleTitle.toString.toLowerCase]}" data-linkType="internal site page" data-linkUrl="${carouselList.pagePath.toLowerCase}#${tagList.toLowerCase}">${tagList}</a></li>
+								</ul>
+							</div>
+							<div class="cmp-horizontal-list__item__title">${carouselItem.articleTitle}</div>
+							<div class="cmp-horizontal-list__item__link">
+								<sly data-sly-test="${carouselItem.linkText}">
+								<div class="secondary_btn">
+									<a href="${carouselItem.linkUrl}" class="btn btn-default" title="${carouselItem.linkText}" data-ec="${carouselItem.analyticsInfo.dataEventCategory}" data-ea="${carouselItem.analyticsInfo.dataEventAction}" data-linkType="${carouselItem.analyticsInfo.dataLinkType}" data-linkUrl="${carouselItem.analyticsInfo.dataLinkUrl.toLowerCase}" data-cta="${carouselItem.analyticsInfo.dataCTA}" rel="${carouselItem.analyticsInfo.rel}" data-portal="${carouselItem.analyticsInfo.dataPortal}" data-persona="${carouselItem.analyticsInfo.dataPersona}" data-portalea="${carouselItem.analyticsInfo.dataPortalEventAction}" target="${carouselItem.linkTarget}"> 
+										${carouselItem.linkText}<span></span>
+									</a>
+								</div>
+								</sly>
+							</div>
+						</div>
+					</div>
+					</sly>
+				</div>
+			</div>
+		</div>

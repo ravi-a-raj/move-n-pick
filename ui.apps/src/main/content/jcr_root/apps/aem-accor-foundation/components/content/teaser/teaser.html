@@ -1,0 +1,47 @@
+<sly
+	data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+	data-emptytext="Teaser Global"
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-teaser-global-placeholder'}" />
+
+<sly data-sly-include="teaser-default.html"></sly>
+<sly
+	data-sly-use.linkModel1="${'com.chubb.foundation.models.LinkModel' @ prefix='primaryCta'}" />
+<sly
+	data-sly-use.linkModel2="${'com.chubb.foundation.models.LinkModel' @ prefix='secondaryCta'}" />
+<sly
+	data-sly-use.feature="${'com.chubb.foundation.models.FeaturedModel'}" />
+
+<div class="cmp-teaser__content">
+	<div class="row flex-column-reverse flex-lg-row flex-sm-row">
+		<sly data-sly-test="${feature.fileReference}">
+		<div class="col-sm-6 col-md-6 col-xs-12 cmp-teaser__content__image">
+			<picture> <img src="${feature.fileReference}"
+				alt="${properties.isDecorative ? true : feature.imageAlt}" /> </picture>
+		</div>
+		</sly>
+		<div class="col-sm-6 col-md-6 col-xs-12 d-flex align-items-center">
+			<div class="cmp-teaser__content__item">
+				<h2 class="cmp-teaser__content__item__eyebrow"
+					data-sly-test="${feature.preTitle1}">${feature.preTitle1}</h2>
+				<h3 class="cmp-teaser__content__item__title"
+					data-sly-test="${feature.title1}">${feature.title1}</h3>
+				<div class="cmp-teaser__content__item__cta">
+					<a class="btn btn-default primary_btn"
+						data-sly-test="${properties.primaryLinkText && linkModel1.url}"
+						href="${linkModel1.url}"
+						title="${properties.primaryLinkText}${linkModel1.linkTargetText}"
+						data-cta="${properties.primaryLinkText.toLowerCase}: ${feature.title1.toLowerCase}"
+						target="${linkModel1.behavior}"> ${properties.primaryLinkText}</a>
+					<a class="btn btn-default secondary_btn"
+						data-sly-test="${properties.secondaryLinkText && linkModel2.url}"
+						href="${linkModel2.url}"
+						title="${properties.secondaryLinkText}${linkModel2.linkTargetText}"
+						data-cta="${properties.secondaryLinkText.toLowerCase}: ${feature.title1.toLowerCase}"
+						target="${linkModel2.behavior}">
+						${properties.secondaryLinkText}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

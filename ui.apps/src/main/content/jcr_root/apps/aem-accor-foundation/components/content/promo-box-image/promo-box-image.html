@@ -1,0 +1,62 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Promo box Image" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-teaser-global-placeholder'}" />
+<sly data-sly-use.promoImage="${'com.chubb.foundation.models.BaseContentModel'}" data-sly-set.layouts="${properties.cq:styleIds}"/>
+
+<!-- Promo box Image Left (Default) & Right Image variations -->
+<section class="cta-teaser__content" aria-labelledby="ctaTeaser-${promoImage.id}" data-sly-test="${'cta-teaser__content--left' in layouts || 'cta-teaser__content--right' in layouts}">
+	<div class="row cta-teaser__content__row cmp-nobleed__container">
+		<sly data-sly-test="${promoImage.fileReference}">
+			<div class="col-sm-6 col-md-6 col-xs-12 cta-teaser__content__image">
+				      <picture>
+                        <source media="(min-width: 768px)" srcset="${promoImage.desktopImage}">
+                        <source media="(max-width: 767px)" srcset="${promoImage.mobileImage}">
+                		<img src="${promoImage.desktopImage}" alt="${properties.isImageDecorative ? true : promoImage.imageAltText}"/>
+                </picture>
+            </div>
+		</sly>
+		<div class="col-sm-6 col-md-6 col-xs-12 d-flex align-items-center">
+			<div class="cta-teaser__content__item">
+				<span id="ctaTeaser-${promoImage.id}" class="cta-teaser__content__item__eyebrow" data-sly-test="${promoImage.preTitle}">${promoImage.preTitle}</span>
+				<h2 class="cta-teaser__content__item__title" data-sly-test="${promoImage.title}">${promoImage.title}</h2>
+				<div class="cta-teaser__content__item__desc" data-sly-test="${promoImage.description}">${promoImage.description @ context='html'}</div>
+				<sly data-sly-test="${'cta-teaser__primary_btn' in layouts}">
+					<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'primary_btn', linkModel = promoImage.cta, componentTitle = promoImage.title}"/>
+				</sly>
+				<sly data-sly-test="${'cta-teaser__secondary_btn' in layouts}">
+					<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = promoImage.cta, componentTitle = promoImage.title}"/>
+				</sly>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Promo box Image Bottom Image variation -->
+<section class="cmp-teaser__content" aria-labelledby="ctaTeaser-${promoImage.id}" data-sly-test="${'cmp-teaser-bottom-image' in layouts}">
+		<div class="row">
+		<div class="col-md-6 col-xs-12 col-md-offset-6 col-xs-offset-0">
+			<span id="ctaTeaser-${promoImage.id}" class="cmp-teaser__content__item__eyebrow" data-sly-test="${promoImage.preTitle}">${promoImage.preTitle}</span>
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-xs-12">
+				<h2 class="cmp-teaser__content__item__title" data-sly-test="${promoImage.title}">${promoImage.title}</h2>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<div class="cmp-teaser__content__item__desc" data-sly-test="${promoImage.description}">${promoImage.description @ context='html'}</div>
+				<sly data-sly-test="${'cta-teaser__primary_btn' in layouts}">
+					<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'primary_btn', linkModel = promoImage.cta, componentTitle = promoImage.title}"/>
+				</sly>
+				<sly data-sly-test="${'cta-teaser__secondary_btn' in layouts}">
+					<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = promoImage.cta, componentTitle = promoImage.title}"/>
+				</sly>
+			</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-12 col-md-12 col-xs-12 cmp-teaser__content__image">
+			<picture>
+					<source media="(min-width: 768px)" srcset="${promoImage.desktopImage}">
+					<source media="(max-width: 767px)" srcset="${promoImage.mobileImage}">
+					<img src="${promoImage.desktopImage}" alt="${properties.isImageDecorative ? true : promoImage.imageAltText}"/>
+             </picture>
+		</div>
+		</div>
+</section>

@@ -1,0 +1,14 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="3 Column Promo Box" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-3-column-promo-box-global-placeholder'}" />
+<sly data-sly-use.carouselList="${'com.chubb.foundation.models.list.FullWidthCarouselList'}" />
+
+<div class="h1-title-rte">${carouselList.preTitle}</div>	
+<sly data-sly-list.carouselItem="${carouselList.carouselList}">
+<div>${carouselItem.title}</div>
+<div>${carouselItem.description @context='html'}</div>
+<picture>
+     <source media="(min-width: 768px)" srcset="${carouselItem.desktopImage}">
+     <source media="(max-width: 767px)" srcset="${carouselItem.mobileImage}">
+     <img src="${carouselItem.desktopImage}" alt="${carouselItem.isImageDecorative ? true : carouselItem.imageAltText}"/>
+</picture>	
+<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = carouselItem.cta, componentTitle = '${carouselItem.title}'}"/>
+</sly>

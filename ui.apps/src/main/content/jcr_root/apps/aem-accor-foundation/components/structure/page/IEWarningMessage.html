@@ -1,0 +1,74 @@
+<style id="optanonstyleoverride"></style>
+<div id="ie-warning-banner">
+     <p style="margin: 0px;">
+          ${inheritedPageProperties.ieWarningMessage || 'For an optimal site experience, we recommend using a different browser. 
+          <br>Using Internet Explorer may prevent you from accessing Chubb.com, and some site features may not function as expected.'@context='html'}
+     </p>
+     <a href="javascript:void(0)" id="ie-warning-close-banner">
+          X
+     </a>
+</div>
+<style>
+     #ie-warning-banner {
+          font-family: 'Lato';
+          display: none;
+          position: relative;
+          z-index: 999;
+          background: #FFFBEF;
+          text-align: left;
+          overflow: hidden;
+          font-size: 16px;
+          padding: 12px 60px 8px 60px;
+     }
+
+     #ie-warning-close-banner {
+          line-height: 46px;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 700;
+          text-decoration: none;
+          color: #333;
+          position: absolute;
+          z-index: 99999;
+          right: 20px;
+          top: 8px;
+          background: #fff;
+          border: 1px solid #ddd;
+          width: 30px;
+     }
+</style>
+<script>
+     function doIeWarning() {
+          note.style.display = 'none';
+          document.cookie = "ieWarningClosed=true;path=/";
+          document.getElementById("optanonstyleoverride").innerHTML = "";
+          document.removeEventListener 
+               ? document.removeEventListener("scroll", changeOTPosition) 
+               : document.detachEvent("onscroll", changeOTPosition);
+     }
+
+     function changeOTPosition() {
+          document.getElementById("optanonstyleoverride").innerHTML = (document.documentElement.scrollTop || document.body.scrollTop) > iEBannerHeight
+               ? ""
+               : "#onetrust-consent-sdk #onetrust-banner-sdk{top:" + iEBannerHeight + "px !important" + "}";
+     }
+
+     var userAgent = window.navigator.userAgent;
+     var msie = userAgent.indexOf("MSIE ");
+     var iEBannerHeight = '';
+
+     if ((msie > 0 || !!userAgent.match(/Trident.*rv\:11\./)) && (document.cookie && document.cookie.search("ieWarningClosed=true") == -1)) {
+          note = document.getElementById("ie-warning-banner");
+          note.style.display = "block";
+          iEBannerHeight = document.getElementById("ie-warning-banner").offsetHeight;
+          document.getElementById("optanonstyleoverride").innerHTML = "#onetrust-consent-sdk #onetrust-banner-sdk{top:" + iEBannerHeight + "px !important" + "}";
+          if (document.addEventListener !== undefined) {
+               document.getElementById("ie-warning-close-banner").addEventListener('click', doIeWarning, false);
+               document.addEventListener("scroll", changeOTPosition, false);
+          }
+          else if (document.attachEvent !== undefined) {
+               document.getElementById("ie-warning-close-banner").attachEvent('onclick', doIeWarning);
+               document.attachEvent('onscroll', changeOTPosition);
+          }
+     }
+</script>

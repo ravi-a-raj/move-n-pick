@@ -1,0 +1,2 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="What It Covers" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-3-column-promo-box-global-placeholder'}" />
+<sly data-sly-use.whatItCoversItem="${'com.chubb.foundation.models.BaseContentModel'}" data-sly-set.layouts="${properties.cq:styleIds}" />

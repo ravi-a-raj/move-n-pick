@@ -1,0 +1,23 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Ribbon"
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-ribbon-placeholder'}" />
+
+<sly data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}"></sly>
+<sly data-sly-test="${properties.linkText}">
+<section class="section-wrapper cmp-ribbon purple--color" role="link" >
+	<a class="cmp-ribbon__content__link" href="${linkModel.url}" data-cta="${properties.linkText.toLowerCase}: ${properties.textarea.toLowerCase}" 
+		title="${properties.linkText} ${properties.textarea}${linkModel.linkTargetText}" target="${linkModel.behavior}">
+		  <div class="section-container">
+			<div class="cmp-ribbon__content">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>${properties.textarea @ context = 'html'}</h2> 	
+						<span>${properties.linkText} 
+						 <em class="icon-arrow"></em>
+                        </span>						
+					</div>
+				</div>
+			</div>
+		  </div>
+	 </a>
+</section>
+</sly>

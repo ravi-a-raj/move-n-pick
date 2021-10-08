@@ -1,0 +1,8 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Resources Index Filter" data-sly-call="${templates.placeholder @ isEmpty = !properties.parentPage, classAppend='cmp-resources-index-filter-placeholder'}"/>
+<sly data-sly-use.articleFilters="${'com.chubb.foundation.models.list.ResourcesIndexFilterListModel'}"/>
+
+<article-filter id="article-filter" data-article="${articleFilters.articleJson}" data-category="${articleFilters.filterJson}" data-loadmore-label="${articleFilters.loadMoreLabel}"></article-filter>
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='chubb-foundation.article-filter'}"/>
+</sly>

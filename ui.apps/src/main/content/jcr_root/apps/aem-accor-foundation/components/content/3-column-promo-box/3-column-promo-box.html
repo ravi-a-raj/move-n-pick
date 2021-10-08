@@ -1,0 +1,104 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="3 Column Promo Box" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-3-column-promo-box-global-placeholder'}" />
+<sly data-sly-use.threeColumnPromoBoxItem="${'com.chubb.foundation.models.ThreeColumnPromoBoxModel'}" data-sly-set.layouts="${properties.cq:styleIds}" />
+
+<!-- col1_content_image -->
+<div class="col1">
+	<div class="col1__content ${threeColumnPromoBoxItem.cardImageType == 'Video' ? 'col1__content__video-col':''} ${threeColumnPromoBoxItem.cardImageType == 'Image' ? 'col1__content__image':''}">
+		<div class="row">
+			<div class="col-sm-2 main_title">
+				<sly data-sly-test ="${threeColumnPromoBoxItem.preTitle}">
+				<div class="content__title">
+					<span class="title-text">${threeColumnPromoBoxItem.preTitle}</span>
+				</div>
+				</sly>
+			</div>
+			<div class="col-sm-10">
+				<div class="row col1__content__row">
+					<div class="col-sm-2  order1">
+						<div class="col1__content__title">
+							<sly data-sly-test ="${threeColumnPromoBoxItem.preTitle}">
+								<div class="content__title">
+									<span class="title-text">${threeColumnPromoBoxItem.preTitle}</span>
+								</div>
+							</sly>
+						</div>
+					</div>
+					<div class="col-lg-5 col1__content__item order2">
+						<div class=" col1__content__text">
+							<sly data-sly-test ="${threeColumnPromoBoxItem.title && threeColumnPromoBoxItem.cardImageType == 'Card'}">
+								<h2 class="col1__content__text__title">${threeColumnPromoBoxItem.title}</h2>
+							</sly>
+							<sly data-sly-test ="${threeColumnPromoBoxItem.title && threeColumnPromoBoxItem.cardImageType == 'Image'}">
+								<h2 class="image-title">${threeColumnPromoBoxItem.title}</h2>
+							</sly>
+                            <sly data-sly-test ="${threeColumnPromoBoxItem.title && threeColumnPromoBoxItem.cardImageType == 'Video'}">
+								<h2 class="image-title">${threeColumnPromoBoxItem.title}</h2>
+							</sly>
+							<sly data-sly-test ="${threeColumnPromoBoxItem.description}">
+								<div class="body-copy-large">${threeColumnPromoBoxItem.description @context='html'}</div>
+							</sly>
+							<sly data-sly-test ="${threeColumnPromoBoxItem.cta.linkText && threeColumnPromoBoxItem.cta.linkUrl}">
+								<div class="col1__content__text__cta">
+									<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = threeColumnPromoBoxItem.cta, componentTitle = threeColumnPromoBoxItem.title}"/>
+								</div>
+							</sly>
+						</div>
+					</div>
+					<div class="col-lg-6 col1__content__item order3">
+						<sly data-sly-test ="${threeColumnPromoBoxItem.cardImageType == 'Card'}">
+							<div class="col1__content__color ${threeColumnPromoBoxItem.cardColor}">
+								<sly data-sly-test ="${threeColumnPromoBoxItem.cardTitle}">
+									<h3 class="col1__content__color__title">${threeColumnPromoBoxItem.cardTitle}</h3>
+								</sly>
+								<sly data-sly-test ="${threeColumnPromoBoxItem.cardDescription}">
+									<div class="body-copy-large">${threeColumnPromoBoxItem.cardDescription @context='html'}</div>
+								</sly>
+							</div> 
+						</sly>
+						<sly data-sly-test ="${threeColumnPromoBoxItem.cardImageType == 'Image' && threeColumnPromoBoxItem.fileReference}">
+							<div class="col1__content__img ">
+								<picture>
+									<img src="${threeColumnPromoBoxItem.fileReference}" alt="${threeColumnPromoBoxItem.isImageDecorative ? true : threeColumnPromoBoxItem.imageAltText}"/>
+								</picture>					
+							</div>
+						</sly>
+						<sly data-sly-test ="${threeColumnPromoBoxItem.cardImageType == 'Video'}">
+								<div class="video__content__vedio-img " >
+                        			<picture>
+										<img src="${threeColumnPromoBoxItem.videoThumbnail}" alt="${threeColumnPromoBoxItem.isThumbnailDecorative ? true : threeColumnPromoBoxItem.thumbnailAltText}"/>
+										<img src="/content/dam/chubb-sites/chubb-com/global/icons/play-icon.png" alt="Video Play icon" class="play-button ${threeColumnPromoBoxItem.videoType == 'Brightcove' ? 'bc-video' :''}" data-video="${threeColumnPromoBoxItem.dataVideo}" data-toggle="modal" data-target="#videoModal-${resource.path.hashCode}"/>
+									</picture>
+                    			</div>
+						</sly>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+<div class="modal fade video-modal ${threeColumnPromoBoxItem.videoType == 'Brightcove' ? 'bc-video-modal': '' }" id="videoModal-${resource.path.hashCode}" tabindex="-1" role="dialog" aria-labelledby="Video Modal - ${threeColumnPromoBoxItem.id}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true"><em class="icon icon-close"></em></span>
+			</button>
+			<div class="modal-body">
+				<sly data-sly-test="${threeColumnPromoBoxItem.videoType == 'Youtube' && threeColumnPromoBoxItem.youtubeLink}">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    	<iframe title="video" class="embed-responsive-item modal-video" id="video-${resource.path.hashCode}"
+                                        src="${threeColumnPromoBoxItem.youtubeLink}"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen="" enablejsapi="1"></iframe>
+                    </div>
+              </sly>
+              <sly data-sly-test="${threeColumnPromoBoxItem.videoType == 'Brightcove' && threeColumnPromoBoxItem.videoPlayer}">
+              	<div class="video-player">
+                    <div style="padding-top: 51.5%;">
+                        <video muted id="video-${threeColumnPromoBoxItem.videoPlayer}" data-id="video-${threeColumnPromoBoxItem.videoPlayer}" data-account="${threeColumnPromoBoxItem.brightcoveAccount}" data-video-title="${properties.dataVideoTitle}" data-video-id="${threeColumnPromoBoxItem.videoPlayer}" data-player="default" data-embed="default" class="video-js" controls style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"> </video>
+                    </div>
+                </div>
+              </sly>
+			</div>
+		</div>
+	</div>
+</div>

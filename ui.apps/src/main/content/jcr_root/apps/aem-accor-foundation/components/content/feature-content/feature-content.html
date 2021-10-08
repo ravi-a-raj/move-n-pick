@@ -1,0 +1,34 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Featured-Content"
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-content-placeholder'}" />
+	
+<sly data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}" />
+<sly data-sly-use.feature="${'com.chubb.foundation.models.FeaturedModel'}" />
+
+<sly data-sly-test.dataCTAValue = "${ properties.contentType == 'content-with-image'  ? (feature.title1 ? feature.title1 : '')  : (feature.title2 ? feature.title2 : '')}" />
+  
+
+	
+<div class="cmp-featured__content__item">
+	
+		<a href="${linkModel.url}" data-cta="${properties.linkText.toLowerCase}: ${dataCTAValue.toLowerCase}" title="${dataCTAValue}${linkModel.linkTargetText}" target="${linkModel.behavior}">
+			<sly data-sly-test="${properties.contentType == 'content-with-image'}">
+				<div class="cmp-featured__content__item__img" data-sly-test="${feature.fileReference}">
+					<img src="${feature.fileReference}" alt="${properties.isDecorative ? true : feature.imageAlt}"/>
+				</div>
+			</sly>
+			<div class="cmp-featured__content__item__text">
+				<h3 data-sly-test="${properties.contentType == 'content-with-image' && feature.title1}" class="cmp-featured__content__item__title" >${feature.title1}</h3>
+				
+				<sly data-sly-test="${properties.contentType == 'content-without-image'}">
+					<h3 class="cmp-featured__content__item__title" data-sly-test="${feature.title2}"> ${feature.title2}</h3>
+					<div class="cmp-featured__content__item__desc" data-sly-test="${feature.description}">
+						<p>${feature.description}</p>
+					</div>
+				</sly>
+				<div class="cmp-featured__content__item__link" data-sly-test="${properties.linkText && linkModel.url}" >
+					<span>${properties.linkText}<em class="icon-arrow"></em></span>
+				</div>
+			</div>
+		</a>
+	
+</div>

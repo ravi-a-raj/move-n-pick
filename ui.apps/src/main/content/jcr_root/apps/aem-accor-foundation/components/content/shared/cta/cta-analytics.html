@@ -1,0 +1,19 @@
+<template data-sly-template.template="${ @ cssClass,linkText,linkUrl,linkTarget,linkAnalyticsInfo}">
+    <div data-sly-test="${linkText && linkUrl}" class="${cssClass}">
+        <a class="btn btn-default"
+           href="${linkUrl}"
+           title="${linkText}"
+           data-ec="${linkAnalyticsInfo.dataEventCategory}"
+           data-ea="${linkAnalyticsInfo.dataEventAction}"
+           data-linkType="${linkAnalyticsInfo.dataLinkType}"
+           data-linkUrl="${linkAnalyticsInfo.dataLinkUrl}"
+           data-cta="${linkAnalyticsInfo.dataCTA}"
+           rel="${linkAnalyticsInfo.rel}"
+           data-portal="${linkAnalyticsInfo.dataPortal}"
+           data-persona="${linkAnalyticsInfo.dataPersona}"
+           data-portalea="${linkModel.linkAnalyticsInfo.dataPortalEventAction}"
+           target="${linkTarget}"><sly data-sly-test="${cssClass == 'secondary_btn'}">${linkText}<span></span></sly>
+            <sly data-sly-test="${cssClass == 'primary_btn'}"><span>${linkText}</span></sly>
+        </a>
+    </div>
+</template>

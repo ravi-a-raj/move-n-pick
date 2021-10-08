@@ -1,0 +1,14 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Featured-Content" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-content-placeholder'}" />
+<sly data-sly-use.linkModel="${'com.chubb.foundation.models.LinkModel'}" />
+<sly data-sly-use.feature="${'com.chubb.foundation.models.FeaturedModel'}" />
+
+
+<div class="cmp-featured__content__item">
+	<div class="cmp-featured__content__item__img" data-sly-test="${feature.fileReference}"> <img src="${feature.fileReference}" alt="${properties.isDecorative ? true : feature.imageAlt}" /> </div>
+	<div class="cmp-featured__content__item__text">
+		<h3 data-sly-test="${feature.title1}" class="cmp-featured__content__item__title">${feature.title1}</h3>
+		<a class="cmp-featured__content__item__link" href="${linkModel.url}" data-cta="${properties.linkText.toLowerCase}: ${feature.title1.toLowerCase}" title="${feature.title1}${linkModel.linkTargetText}" target="${linkModel.behavior}" data-sly-test="${properties.linkText}">
+			${properties.linkText} <em class="icon-arrow"></em> 
+		</a>
+	</div>
+</div>

@@ -1,0 +1,95 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Body Copy with Optional List" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-copy-list-global-placeholder'}" />
+<sly data-sly-set.layouts="${properties.cq:styleIds}"/>
+<sly data-sly-use.copyListModel="${'com.chubb.foundation.models.list.CopyListModel'}" />
+
+<sly data-sly-test.isLeaderShip="${'cmp-copy-list__leader-ship' in layouts}">
+	<div class="copy-list4__content">
+		<div class="row copy-list4__content__row">
+			<div class="col-sm-12 ">
+				<h2 class="copy-list4__content__title" data-sly-test="${copyListModel.title}">${copyListModel.title}</h2>
+			</div>
+			<sly data-sly-list.copyListItem="${copyListModel.copyList}">
+				<div class="col-sm-6 ">
+					<div class="copy-list4__content__text">
+						<h3 class="copy-list4__content__text__title" data-sly-test="${copyListItem.title}">${copyListItem.title}</h3>
+						<div class="copy-list4__content__text__desc">${copyListItem.description @ context='html'}</div>
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = copyListItem.cta, componentTitle = copyListItem.title}"/>
+					</div>
+				</div>
+			</sly>
+		</div>
+	</div>
+</sly>
+
+<div class="copy-list__content" data-sly-test.isFullWidth="${'cmp-copy-list__content-fw' in layouts}">
+	<div class="row copy-list4__content__row">
+		<div class="col-md-2 col-xs-12">
+		</div>
+		<div class="col-md-8 col-xs-12">
+			<h2 class="copy-list4__content__text__title" data-sly-test="${copyListModel.title}">${copyListModel.title}</h2>
+			<div class="copy-list4__content__text__desc">${copyListModel.description @ context='html'}</div>
+			<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = copyListModel.cta, componentTitle = copyListModel.title}"/>
+		</div>
+		<div class="col-md-2 col-xs-12">
+		</div>
+	</div>
+</div>
+<div class="copy-list__content" data-sly-test.isHalfWidth="${'cmp-copy-list__content-hw' in layouts}">
+	<div class="row copy-list4__content__row">
+		<div class="col-md-6 col-xs-12">
+			<h2 class="copy-list4__content__text__title" data-sly-test="${copyListModel.title}">${copyListModel.title}</h2>
+		</div>
+		<div class="col-md-6 col-xs-12 copy-list4__content">			
+			<div class="copy-list4__content__text__desc">${copyListModel.description @ context='html'}</div>
+			<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = copyListModel.cta, componentTitle = copyListModel.title}"/>
+		</div>
+	</div>
+</div>
+
+<sly data-sly-test.isText="${!isLeaderShip && !isFullWidth && !isHalfWidth}">
+	<section class="copy-list__content" aria-labelledby="CopyList-${resource.path.hashCode}">
+		<div class="row">
+			<div class="col-sm-2 col-xs-12">
+				<div class="content__title">
+					<span class="title-text" id="CopyList-${resource.path.hashCode}">${copyListModel.preTitle}</span>
+				</div>
+			</div>
+			<div class="col-sm-10 col-xs-12">
+				<sly data-sly-test ="${copyListModel.title || copyListModel.description}">
+					<div class="copy-list__content__header">
+						<div class="row">
+							<div class="col-sm-12">
+								<sly data-sly-test ="${copyListModel.title}">
+									<h2 class="copy-list__content__pre-title" data-sly-test="${copyListModel.title}">${copyListModel.title}</h2>
+								</sly>
+								<sly data-sly-test ="${copyListModel.description}">
+									<div class="copy-list__content__desc">${copyListModel.description @ context='html'}</div>
+								</sly>
+							</div>
+						</div>
+					</div>
+				</sly>
+				<div data-sly-test="${copyListModel.copyList}" class="row ${(!copyListModel.title && !copyListModel.description) ? 'copy-list__content__row-copylist2':'copy-list__content__row'}">
+					<sly data-sly-list.copyListItem="${copyListModel.copyList}">
+						<div class="col-6">
+							<div class="copy-list__content__text">
+									<h3 class="copy-list__content__text__title" data-sly-test="${copyListItem.title}">${copyListItem.title}</h3>
+								<div class="copy-list__content__text__desc">${copyListItem.description @ context='html'}</div>
+							</div>
+						</div>
+					</sly>
+				</div>
+				<sly data-sly-test="${'cta-copy-list__primary_btn' in layouts}">
+					<div class="row">
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'primary_btn', linkModel = copyListModel.cta, componentTitle = copyListModel.title}"/>
+					</div>
+				</sly>
+				<sly data-sly-test="${'cta-copy-list__secondary_btn' in layouts}">
+					<div class="row">
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = copyListModel.cta, componentTitle = copyListModel.title}"/>
+					</div>
+				</sly>
+			</div>
+		</div>
+	</section>
+</sly>

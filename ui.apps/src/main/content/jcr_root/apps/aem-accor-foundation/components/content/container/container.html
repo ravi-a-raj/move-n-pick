@@ -1,0 +1,10 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+	 data-sly-call="${templates.placeholder @ isEmpty = true, classAppend='cmp-container-placeholder'}" />
+<sly data-sly-set.layouts="${properties.cq:styleIds}"/>
+
+<section class="section-wrapper">
+	<div class="section-container">
+		<sly class="cmp-container"
+			data-sly-resource="${'color-container-parsys' @resourceType='wcm/foundation/components/responsivegrid'}" />
+	</div>
+</section>

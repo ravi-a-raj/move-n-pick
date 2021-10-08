@@ -1,0 +1,33 @@
+<template data-sly-template.template="${ @ attribution}">
+	
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+	data-emptytext="Attribution" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-generic-content-placeholder'}" />
+
+	<sly data-sly-test="${attribution.headline}">
+	 	<a href="${attribution.linkUrl}" title="${attribution.headline}${attribution.targetText}" target="${attribution.target}"
+		   data-ec="${attribution.attributionAnalytics.dataEventCategory}"
+		   data-ea="${attribution.attributionAnalytics.dataEventAction}"
+		   data-linkType="${attribution.attributionAnalytics.dataLinkType}"
+		   data-linkUrl="${attribution.attributionAnalytics.dataLinkUrl}"
+		   data-cta="${attribution.attributionAnalytics.dataCTA}"
+		   rel="${attribution.attributionAnalytics.rel}"
+		   data-portal="${attribution.attributionAnalytics.dataPortal}"
+		   data-persona="${attribution.attributionAnalytics.dataPersona}"
+		   data-portalea="${attribution.attributionAnalytics.dataPortalEventAction}">
+			<div class="cmp-featured-generic__content__item__author">
+				<div data-sly-test="${attribution.imageUrl}" class="flex-child cmp-featured-generic__content__item__author__image">
+					<picture> 
+			        	<img src="${attribution.imageUrl}"
+							alt="${attribution.isDecorative ? true : attribution.imageAltText}" />
+					</picture>
+				</div>
+			
+				<div class="flex-child cmp-featured-generic__content__item__author__text">
+					<span data-sly-test="${attribution.headline}" class ="cmp-featured-generic__content__item__author__text__title">${attribution.headline}</span>
+					<span data-sly-test="${attribution.copy}" class ="cmp-featured-generic__content__item__author__text__desc">${attribution.copy}</span>
+				</div>
+			</div>
+		</a>
+	</sly>
+
+</template>

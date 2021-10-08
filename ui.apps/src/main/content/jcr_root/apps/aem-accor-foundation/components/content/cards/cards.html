@@ -1,0 +1,67 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptylinkText="Card-Content"
+	data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-card-generic-content-placeholder'}" />
+
+<sly data-sly-set.layouts="${properties.cq:styleIds}"/>
+<sly data-sly-use.cardModel="${'com.chubb.foundation.models.list.CardModelList'}" />
+
+<sly data-sly-test="${cardModel.headingsType == 'at-top'}">
+<section class="cmp-card-component" aria-labelledby="CardsList-${resource.path.hashCode}">
+	<div class="cmp-card__content">
+		<div class="cmp-card__content__header">
+			<div class="row">
+				<div class="col-sm-12">
+					<span id="CardsList-${resource.path.hashCode}" class="cmp-card__content__item__eyebrow eyebrow-text" data-sly-test="${cardModel.preTitle}">${cardModel.preTitle}</span>
+				</div>
+			</div>
+			<div class="row featured-flex-box-2-grid5-7">
+				<div class="col-lg-5 col-sm-6 col-xs-12 featured-flex-box-2-grid5-7__item">
+					<h2 class="cmp-card__content__item__title h3-heading" data-sly-test="${cardModel.title}">${cardModel.title}</h2>
+				</div>
+				<div class="col-lg-7 col-sm-6 col-xs-12 featured-flex-box-2-grid5-7__item">
+					<div class="cmp-card__content__item__desc body-copy-large">${cardModel.description @context='html'}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row cmp-card__row mobile-carousel featured-flex-box-3">
+		<sly data-sly-list.cardItem="${cardModel.cardList}"> 
+			<div class="col-lg-4 col-md-6 featured-flex-box-3__item">
+				<div class="cmp-card  ${cardItem.color} cmp-card__bottom">
+					<div class="cmp-card__container">
+						<div class="cmp-card__container__number h1-heading">${cardItem.title}</div>
+						<div class="cmp-card__container__desc body-copy-large">${cardItem.description @ context='html'}</div>
+					</div>
+				</div>
+			</div>
+		</sly>
+	</div>
+</section>
+</sly>
+
+<sly data-sly-test="${cardModel.headingsType == 'in-line'}">
+<section class="cmp-card-component" aria-labelledby="CardsList-${resource.path.hashCode}">
+	<div class="cmp-card__content">
+		<div class="cmp-card__content__header cmp-card__header">
+			<div class="col-lg-4 col-md-6 featured-flex-box-3__item">
+				<div class="cmp-card cmp-card-without-bg">
+					<div class="cmp-card__container">
+						<span id="CardsList-${resource.path.hashCode}" class="cmp-card__container__eyebrow eyebrow-text" data-sly-test="${cardModel.preTitle}">${cardModel.preTitle}</span>
+						<h2 class="cmp-card__container__title h3-heading" data-sly-test="${cardModel.title}">${cardModel.title}</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row cmp-card__row  mobile-carousel featured-flex-box-3">
+			<sly data-sly-list.cardItem="${cardModel.cardList}">
+				<div class="col-lg-4 col-md-6 featured-flex-box-3__item">
+					<div class="cmp-card ${cardItem.color}" role="link" >
+						<div class="cmp-card__container">
+							<h3 class="cmp-card__container__title h4-heading" data-sly-test="${cardItem.title}">${cardItem.title}</h3>
+						</div>
+					</div>
+				</div>
+			</sly>
+		</div>
+	</div>
+</section>
+</sly>

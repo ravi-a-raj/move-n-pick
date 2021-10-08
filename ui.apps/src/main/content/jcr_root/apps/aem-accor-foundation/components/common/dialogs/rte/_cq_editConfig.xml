@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:EditConfig">
+    <cq:inplaceEditing
+        jcr:primaryType="cq:InplaceEditingConfig"
+        active="{Boolean}true"
+        configPath="/apps/aem-chubb-foundation/components/common/dialogs/rte/cq:editConfig/cq:inplaceEditing"
+        editorType="text">
+        <rtePlugins jcr:primaryType="nt:unstructured">
+            <format
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+            <lists
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+            <justify
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+            <subsuperscript
+                jcr:primaryType="nt:unstructured"
+                features="superscript"/>
+            <links
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+            <undo
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+            <styles
+                jcr:primaryType="nt:unstructured"
+                features="*">
+                <styles jcr:primaryType="nt:unstructured">
+                    <h1-title jcr:primaryType="nt:unstructured" cssName="h1-title-rte" text="62px"/>
+                    <h2-title jcr:primaryType="nt:unstructured" cssName="h2-title-rte" text="50px"/>
+                    <h3-title jcr:primaryType="nt:unstructured" cssName="h3-title-rte" text="40px"/>
+                    <h4-title jcr:primaryType="nt:unstructured" cssName="h4-title-rte" text="34px"/>
+                    <h5-title jcr:primaryType="nt:unstructured" cssName="h5-title-rte" text="26px"/>
+                    <h6-title jcr:primaryType="nt:unstructured" cssName="h6-title-rte" text="18px"/>
+                    <body-copy jcr:primaryType="nt:unstructured" cssName="body-copy-text-rte" text="16px"/>
+                </styles>
+            </styles>
+            <fontColor
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+            <spellcheck
+                jcr:primaryType="nt:unstructured"
+                features="*"/>
+        </rtePlugins>
+    </cq:inplaceEditing>
+</jcr:root>

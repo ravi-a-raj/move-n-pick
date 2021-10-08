@@ -1,0 +1,40 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Hero Banner" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-hero-banner-global-placeholder'}" />
+<sly data-sly-use.herobanner="${'com.chubb.foundation.models.BaseContentModel'}" data-sly-set.layouts="${properties.cq:styleIds}" />
+
+<!-- Title and Description variation -->
+<sly data-sly-test.isText="${'cmp-hero__content__text--description' in layouts && !isImageOnly}">
+	<div class="cmp-hero">
+		<div class="cmp-hero__content">
+			<div class="row">
+				<div class="col-xl-8 col-lg-9">
+					<div class="cmp-hero__content__text">
+						<h1 class="h1-heading">${herobanner.title}</h1>
+						<p class="h6-heading">${herobanner.description @ context='html'}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</sly>
+
+<!-- Title and Image variation - Default Variation -->
+<sly data-sly-test="${ !isText }">
+	<div class="cmp-hero">
+		<div class="cmp-hero__content">
+			<div class="row">
+				<div class="col-xl-8 col-lg-9">
+					<div class="cmp-hero__content__text">
+						<h1 class="h1-heading">${herobanner.title}</h1>
+					</div>
+				</div>
+			</div>
+			<sly data-sly-test="${herobanner.fileReference}">
+				<div class="cmp-hero__content__image">
+					<picture>
+						<img src="${herobanner.fileReference}" alt="${herobanner.isImageDecorative ? true : herobanner.imageAltText}"/>
+					</picture>
+				</div>
+			</sly>
+		</div>
+	</div>
+</sly>

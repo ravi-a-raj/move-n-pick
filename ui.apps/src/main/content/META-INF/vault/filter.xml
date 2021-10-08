@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aem-chubb-global" mode="replace"/>
+	<filter root="/apps/aem-chubb-foundation" mode="replace"/>
+    <filter root="/apps/sling" mode="replace"/>
+    <filter root="/apps/wcm/core/resources/languages" mode="replace"/>
+    <filter root="/apps/wcm/core/content" mode="replace"/>
+    <filter root="/etc/map" mode="replace"/>
+    <filter root="/apps/cq/xssprotection" mode="replace"/>
+    <filter root="/apps/cq/tagging" mode="replace"/>
+    <filter root="/apps/dam/gui/coral" mode="replace"/>
+    <filter root="/apps/dam/gui/content/assets/v2" mode="replace"/>
+    <filter root="/apps/dam/gui/content/commons" mode="replace"/>
+    <filter root="/apps/dam/gui/content/assets/.content.xml" mode="merge"/>
+	<filter root="/apps/cq/gui" mode="replace"/>
+    <filter root="/apps/dam/gui" mode="replace"/>
+    <filter root="/apps/settings/dam/cfm" mode="replace"/>
+	<filter root="/apps/clientlibs/granite/coralui3" mode="replace"/>
+</workspaceFilter>

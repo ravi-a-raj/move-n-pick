@@ -1,0 +1,154 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Featured"
+	 data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-featured-genric-content-placeholder'}" />
+<sly data-sly-use.featureModel="${'com.chubb.foundation.models.list.FeatureListModel'}" />
+
+<sly data-sly-test="${featureModel.contentType == 'content-with-image'}">
+<section aria-labelledby="Featured-${resource.path.hashCode}">
+	<div class="content__title" data-sly-test="${featureModel.preTitle}">
+		<span id="Featured-${resource.path.hashCode}" class="title-text">${featureModel.preTitle}</span>
+	</div>
+	<div class="row featured-flex-box-3">
+		<sly data-sly-list.featureItem="${featureModel.featureList}">
+			<div class="col-sm-4 featured-flex-box-3__item">
+				<div class="cmp-featured-generic__content__item">
+				<sly data-sly-test = "${featureItem.cta.linkUrl}">
+					<a href="${featureItem.cta.linkUrl}" title="${featureItem.cta.linkText}${featureItem.cta.linkTargetText}" target="${featureItem.cta.linkTarget}"
+					   data-ec="${featureItem.cta.analyticsInfo.dataEventCategory}"
+					   data-ea="${featureItem.cta.analyticsInfo.dataEventAction}"
+					   data-linkType="${featureItem.cta.analyticsInfo.dataLinkType}"
+					   data-linkUrl="${featureItem.cta.analyticsInfo.dataLinkUrl}"
+					   data-cta="${featureItem.cta.analyticsInfo.dataCTA}"
+					   rel="${featureItem.cta.analyticsInfo.rel}"
+					   data-portal="${featureItem.cta.analyticsInfo.dataPortal}"
+					   data-persona="${featureItem.cta.analyticsInfo.dataPersona}"
+					   data-portalea="${featureItem.cta.analyticsInfo.dataPortalEventAction}"></sly>
+						<div class="cmp-featured-generic__content__item__img" data-sly-test="${featureItem.imageUrl}">
+							<picture>
+								<source media="(min-width: 768px)" srcset="${featureItem.desktopImage}">
+								<source media="(max-width: 767px)" srcset="${featureItem.mobileImage}">
+								<img src="${featureItem.imageUrl}" alt="${featureItem.isDecorative ? true : featureItem.imageAltText}" />
+							</picture>
+						</div>
+					<sly data-sly-test = "${featureItem.cta.linkUrl}"></a></sly>
+					<sly data-sly-test="${featureModel.attributeCheckBox}">
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/common/dialogs/attribution/attribution.html"
+							 data-sly-call="${component.template @ attribution = featureItem.attribution}" />
+					</sly>
+					<sly data-sly-test = "${featureItem.cta.linkUrl}">
+						<a href="${featureItem.cta.linkUrl}" title="${featureItem.cta.linkText}${featureItem.cta.linkTargetText}" target="${featureItem.cta.linkTarget}"
+						   data-ec="${featureItem.cta.analyticsInfo.dataEventCategory}"
+						   data-sly-unwrap="${!(featureItem.cta.linkText && featureItem.cta.linkUrl)}"
+						   data-ea="${featureItem.cta.analyticsInfo.dataEventAction}"
+						   data-linkType="${featureItem.cta.analyticsInfo.dataLinkType}"
+						   data-linkUrl="${featureItem.cta.analyticsInfo.dataLinkUrl}"
+						   data-cta="${featureItem.cta.analyticsInfo.dataCTA}"
+						   rel="${featureItem.cta.analyticsInfo.rel}"
+						   data-portal="${featureItem.cta.analyticsInfo.dataPortal}"
+						   data-persona="${featureItem.cta.analyticsInfo.dataPersona}"
+						   data-portalea="${featureItem.cta.analyticsInfo.dataPortalEventAction}"></sly>
+							<div class="cmp-featured-generic__content__item__text">
+								<h2 class="cmp-featured-generic__content__item__desc-img">${featureItem.imageDescription}</h2>
+							</div>
+						<sly data-sly-test = "${featureItem.cta.linkUrl}"></a></sly>
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = featureItem.cta, componentTitle = ''}"/>
+				</div>
+			</div>
+		</sly>
+	</div>
+</section>
+</sly>
+
+<sly data-sly-test="${featureModel.contentType == 'content-without-image'}">
+<section aria-labelledby="Featured-${resource.path.hashCode}">
+	<div class="content__title" data-sly-test="${featureModel.preTitle}">
+		<span id="Featured-${resource.path.hashCode}" class="title-text">${featureModel.preTitle}</span>
+	</div>
+	<sly data-sly-test.class="${(featureModel.childrenCount)? 'row featured-flex-box-2' : 'row featured-flex-box-3'}"/>
+	<div class="${class}">
+		<sly data-sly-list.featureItem="${featureModel.featureList}">
+			<sly data-sly-test.innerclass="${(featureModel.childrenCount)? 'col-sm-4 featured-flex-box-2__item' : 'col-sm-4 featured-flex-box-3__item'}"/>
+			<div class="${innerclass}">
+				<div class="cmp-featured-generic__content__item">
+					<div class="cmp-featured-generic__content__item__text">
+						<h2 class="cmp-featured-generic__content__item__title" data-sly-test="${featureItem.textTitle}">${featureItem.textTitle}</h2>
+						<div class="cmp-featured-generic__content__item__desc" data-sly-test="${featureItem.textDescription}">
+							<div>${featureItem.textDescription @ context='html'}</div>
+						</div>
+					</div>
+					<sly data-sly-test="${featureModel.attributeCheckBox}">
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/common/dialogs/attribution/attribution.html"
+							 data-sly-call="${component.template @ attribution = featureItem.attribution}" />
+					</sly>
+				</div>
+			</div>
+		</sly>
+	</div>
+</section>
+</sly>
+
+<sly data-sly-test="${featureModel.contentType == 'testimonials'}">
+<section class="cmp-testimonial" aria-labelledby="Testimonial-${resource.path.hashCode}">
+	<sly data-sly-test="${featureModel.preTitle}">
+		<div class="testimonial__header ">
+			<div class="row">
+				<div class="col-md-2 col-sm-2 col-xs-12 testimonial__header__tab4col ">
+					<span id="Testimonial-${resource.path.hashCode}" class="eyebrow-text-rte">${featureModel.preTitle}</span>
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-12 testimonial__header__tab8col">
+					<div class="row">
+						<div class="col-md-9 col-sm-12 col-xs-12">
+							<h2 class="h2-title-rte">${featureModel.title}</h2>
+						</div>
+						<div class="col-md-3 col-sm-12 col-xs-12 btn-container">
+							<sly data-sly-use.component="/apps/aem-chubb-foundation/components/content/shared/cta/cta.html" data-sly-call="${component.template @ cssClass = 'secondary_btn', linkModel = featureModel.primaryCta, componentTitle = featureModel.preTitle}"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</sly>
+
+	<div class="testimonial__content">
+		<div class="row">
+			<div class="col-md-2 col-sm-12 col-xs-12"></div>
+			<div class="col-md-10 col-sm-12 col-xs-12">
+				<sly data-sly-test.class="${(featureModel.childrenCount)? 'row featured-flex-box-2' : 'row featured-flex-box-3'}"/>
+				<div class="${class}">
+					<sly data-sly-list.featureItem="${featureModel.featureList}">
+						<sly data-sly-test.innerclass="${(featureModel.childrenCount)? 'col-sm-4 featured-flex-box-2__item' : 'col-sm-4 featured-flex-box-3__item'}"/>
+						<div class="${innerclass}">
+							<div class="cmp-featured-generic__content__item">
+								<div class="testimonial__content__item">
+									<h3 class="cmp-featured-generic__content__item__title" data-sly-test="${featureItem.testimonialText}">${featureItem.testimonialText}</h3>
+								</div>
+								<sly data-sly-test="${featureModel.attributeCheckBox}">
+									<sly data-sly-use.component="/apps/aem-chubb-foundation/components/common/dialogs/attribution/attribution.html"
+										 data-sly-call="${component.template @ attribution = featureItem.attribution}" />
+								</sly>
+							</div>
+						</div>
+					</sly>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</sly>
+
+<sly data-sly-test="${featureModel.contentType == 'quotes'}">
+	<section class="row" >
+		<sly data-sly-list.featureItem="${featureModel.featureList}">
+			<div class="col-md-10 col-sm-10 col-xs-12 offset-sm-1 mx-auto cmp-featured-generic--quote">
+				<div class="cmp-featured-generic__content__item">
+					<div class="testimonial__content__item">
+						<div id="Quote-${resource.path.hashCode}" class="cmp-featured-generic__content__item__title" data-sly-test="${featureItem.quoteText}">${featureItem.quoteText}</div>
+					</div>
+					<sly data-sly-test="${featureModel.attributeCheckBox}">
+						<sly data-sly-use.component="/apps/aem-chubb-foundation/components/common/dialogs/attribution/attribution.html"
+							 data-sly-call="${component.template @ attribution = featureItem.attribution}" />
+					</sly>
+				</div>
+			</div>
+		</sly>
+	</section>
+</sly>

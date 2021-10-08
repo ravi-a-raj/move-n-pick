@@ -1,0 +1,11 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-emptytext="Panoromic Image" data-sly-call="${templates.placeholder @ isEmpty = !properties.headline, classAppend='cmp-panoramic-image-placeholder'}" />
+<sly data-sly-use.panoromicImage="${'com.chubb.foundation.models.BaseContentModel'}"/>
+
+		<div>
+            <picture>
+               <source media="(min-width: 768px)" srcset="${panoromicImage.desktopImage}">
+               <source media="(max-width: 767px)" srcset="${panoromicImage.mobileImage}">
+               <img src="${panoromicImage.desktopImage}" alt="${panoromicImage.isImageDecorative ? true : panoromicImage.imageAltText}"/>
+            </picture>
+		</div>
+
